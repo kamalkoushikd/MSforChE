@@ -1,0 +1,82 @@
+.lattice-container {
+    border: 2px solid #00388d;
+    border-radius: 12px;
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 30px auto;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3), 0 0 30px rgba(26, 117, 255, 0.1);
+    overflow: hidden;
+    background-color: #2a2a3b;
+}
+
+.controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    background-color: rgba(10, 10, 10, 0.85);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #00388d;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    max-width: 250px;
+
+}
+
+.controls:hover {
+    box-shadow: 0 4px 15px rgba(26, 117, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.controls h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #1a75ff;
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    font-size: 18px;
+    border-bottom: 2px solid #00388d;
+    padding-bottom: 8px;
+}
+
+.controls ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.controls li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    font-family: 'Fira Code', monospace;
+}
+
+.controls li:before {
+    content: '›';
+    color: #1a75ff;
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.controls li:last-child {
+    margin-bottom: 0;
+}
+
+/* Enhance the 3D area for better visual distinction */
+.lattice-container canvas {
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Custom selection color to match your theme */
+.lattice-container ::selection {
+    background-color: #df056b;
+    color: #f3e3c6;
+}

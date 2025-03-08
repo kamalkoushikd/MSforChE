@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Kamal Koushik Duppalapudi",
+        "role": "Team member 1",
+        "image": "images/hero.jpg"
+    },
+    {
+        "name": "Suniras Ram Rapelli",
+        "role": "Team Member 2",
+        "image": "images/Suni.jpeg"
+    },
+    {
+        "name": "Meghana Makkapati",
+        "role": "Team Member 3",
+        "image": "images/Meghana.jpeg"
+    }
+]

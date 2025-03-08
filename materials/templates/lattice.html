@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}3D Model Viewer{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/container.css' %}">
+<div class="controls">
+  <h3>Controls</h3>
+  <ul>
+    <li>Left click + drag: Rotate</li>
+    <li>Right click + drag: Pan</li>
+    <li>Scroll: Zoom</li>
+  </ul>
+</div>
+<div class="lattice-container" id="sc-lattice" style="width: 800px; height: 600px; margin: auto;">
+</div>
+<div  style="display:flex; padding: 20px; justify-content: center; align-items: center; padding: 20px" >
+  <h5>This an Interactive model of Simple Cubic Lattice</h5>
+</div>
+<div class="lattice-container" id="fcc-lattice" style="width: 800px; height: 600px; margin: auto;">
+</div>
+<div  style="display:flex; padding: 20px; justify-content: center; align-items: center;" >
+  <h5>This an Interactive model of Face Centered Cubic Lattice</h5>
+</div>
+<div class="lattice-container" id="bcc-lattice" style="width: 800px; height: 600px; margin: auto;">
+</div>
+<div  style="display:flex; padding: 20px; justify-content: center; align-items: center;" >
+  <h5>This an Interactive model of Body Centered Cubic Lattice</h5>
+</div>
+<!-- Load Three.js and dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="{% static 'js/lattice.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/OutlinePass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/FXAAShader.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sclattice = new latticeRender('sc-lattice', "/static/models/SC.glb", 'Simple Cubic Lattice')
+  const fccLattice = new latticeRender('fcc-lattice', "/static/models/FCC.glb", 'Face Centered Cubic Lattice')
+  const bccLattice = new latticeRender('bcc-lattice', "/static/models/BCC.glb", 'Body Centered Cubic Lattice')
+
+});
+</script>
+
+{% endblock %}

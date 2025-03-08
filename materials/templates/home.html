@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Home - Materials Science Project{% endblock %}
+
+{% block content %}
+<h1>Welcome to the Materials Science Project</h1>
+<p>This is the home page.</p>
+
+<!-- Meet the Team Section -->
+<section class="team-section">
+    <h2 style="font-weight: 800;">Meet the Team</h2>
+    <div class="team-cards">
+        {% for member in team %}
+        <div class="team-card">
+            <img src="{% static member.image %}" alt="{{ member.name }}">
+            <h3>{{ member.name }}</h3>
+            <p>{{ member.role }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<div class="button-container">
+    <div class="custom-button">
+        <a href="{% url 'materials:project' %}">Projects</a>
+    </div>
+</div>
+{% endblock %}
