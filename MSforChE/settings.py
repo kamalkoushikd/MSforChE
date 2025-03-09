@@ -16,6 +16,19 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# Enforce HTTPS
+SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Cookies should only be sent over HTTPS
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+# Content Security Policy (Optional)
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -25,7 +38,7 @@ SECRET_KEY = 'django-insecure-$5_gsnuru@%o#j05*zkeupi6bi2^%l@rieopyp*cbsxe-+zxga
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '192.168.0.100', '127.0.0.1', '13.60.23.37', 'materialscienceweb.xyz', 'www.materialscienceweb.xyz']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
