@@ -1,0 +1,44 @@
+.gen-content {
+  margin: 100px; }
+  .gen-content p {
+    font-size: 20px;
+    color: #f0f0f0;
+    /* Light gray for text */ }
+  .gen-content .definition {
+    margin: 25px; }
+    .gen-content .definition h2 {
+      font-size: 2.5rem;
+      /* Ensure no underline for h2 */ }
+      .gen-content .definition h2 a {
+        color: #bbdefb;
+        /* White for headings */
+        text-decoration: none;
+        /* Ensure no underline for links */ }
+    .gen-content .definition ul {
+      color: #bbdefb;
+      /* White for headings */
+      text-decoration: none;
+      /* Ensure no underline for list items */ }
+      .gen-content .definition ul h3 a {
+        color: #bbdefb;
+        /* White for headings */
+        text-decoration: none;
+        /* Ensure no underline for links */ }
+
+/* Variables */
+.image-container {
+  background-color: #f0f0f0;
+  /* Set your desired background color */
+  display: inline-block;
+  /* Ensures the container wraps around the image */
+  border-radius: 8px;
+  /* Optional: Adds rounded corners */
+  padding: 10px;
+  /* Optional: Adds space around the image */ }
+  .image-container img {
+    display: block;
+    /* Removes unwanted spacing below the image */
+    height: 100%;
+    width: 100%; }
+
+/*# sourceMappingURL=general.css.map */

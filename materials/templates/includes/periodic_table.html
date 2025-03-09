@@ -1,0 +1,78 @@
+<!-- templates/includes/periodic_table.html -->
+{% load static %}
+{% load ec %}
+<script id="elements-data" type="application/json">
+    {{ elements|safe }}
+</script>
+
+<script src="{% static 'js/periodic_table.js' %}"></script>
+
+<div class="periodic-table-container">
+    
+    <div class="periodic-table">
+        {% for element in elements %}
+            <div class="element {{ element.group_block|slugify }}" 
+                 style="grid-row: {{ element.display_position.row }}; grid-column: {{ element.display_position.column }};" 
+                 data-number="{{ element.atomic_number }}" 
+                 data-symbol="{{ element.symbol }}">
+                <div class="atomic-number">{{ element.atomic_number }}</div>
+                <div class="symbol">{{ element.symbol }}</div>
+                <div class="name">{{ element.name }}</div>
+                <div class="atomic-mass">{{ element.atomic_mass }}</div>
+
+                <div class="element-card">
+                    <div class="symbol-container">
+                        <span class="symbol">{{ element.symbol }}</span>
+                    </div>
+                    <h3>{{ element.name }}</h3>
+
+                    <p class="an-card"><strong>Atomic Number:</strong> {{ element.atomic_number }}</p>
+                    
+                    <p><strong>Atomic Mass:</strong> {{ element.atomic_mass|floatformat:4 }}</p>
+                    <p><strong>Electronegativity:</strong> {{ element.electronegativity|default:"N/A" }}</p>
+                    <p><strong>Atomic Radius:</strong> {{ element.atomic_radius|default:"N/A" }} pm</p>
+                    <p><strong>Electron Configuration:</strong> {{ element.electron_configuration | to_superscript }}</p>
+                    <p><strong>Standard State:</strong> {{ element.standard_state|default:"N/A" }}</p>
+                    <p><strong>Melting Point:</strong> {{ element.melting_point|default:"N/A" }} K</p>
+                    <p><strong>Boiling Point:</strong> {{ element.boiling_point|default:"N/A" }} K</p>
+                    <p><strong>Density:</strong> {{ element.density|default:"N/A" }} g/cm³</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="legend-container">
+    <h3>Legend</h3>
+    <div class="legend-item alkali-metal">
+      <span class="legend-color"></span> Alkali Metal
+    </div>
+    <div class="legend-item alkaline-earth-metal">
+      <span class="legend-color"></span> Alkaline Earth Metal
+    </div>
+    <div class="legend-item transition-metal">
+      <span class="legend-color"></span> Transition Metal
+    </div>
+    <div class="legend-item post-transition-metal">
+      <span class="legend-color"></span> Post-Transition Metal
+    </div>
+    <div class="legend-item metalloid">
+      <span class="legend-color"></span> Metalloid
+    </div>
+    <div class="legend-item nonmetal">
+      <span class="legend-color"></span> Nonmetal
+    </div>
+    <div class="legend-item halogen">
+      <span class="legend-color"></span> Halogen
+    </div>
+    <div class="legend-item noble-gas">
+      <span class="legend-color"></span> Noble Gas
+    </div>
+    <div class="legend-item lanthanide">
+      <span class="legend-color"></span> Lanthanide
+    </div>
+    <div class="legend-item actinide">
+      <span class="legend-color"></span> Actinide
+    </div>
+  </div>
+

@@ -12,7 +12,7 @@ $selection-text: #f3e3c6;
     position: relative;
     width: 90%;
     max-width: 800px;
-    height: 500px;
+    height: 300px;
     margin: 20px auto;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3), 0 0 30px rgba(26, 117, 255, 0.1);
     overflow: hidden;
@@ -31,9 +31,7 @@ $selection-text: #f3e3c6;
 
 /* Control Panel */
 .controls {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    position: relative;
     z-index: 2;
     background-color: $control-bg;
     padding: 20px;
@@ -42,7 +40,7 @@ $selection-text: #f3e3c6;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(4px);
     transition: all 0.3s ease;
-    max-width: 250px;
+    max-width: 200px;
 
     &:hover {
         box-shadow: 0 4px 15px rgba($lattice-highlight, 0.3);

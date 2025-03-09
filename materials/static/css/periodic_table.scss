@@ -1,0 +1,178 @@
+// Variables for colors
+$border-color: #333;
+$default-bg: #f0f0f0;
+$shadow-color: rgba(0, 0, 0, 0.3);
+
+// Element category colors and text colors
+$category-colors: (
+  'alkali-metal': (#ff8a8a, #000000), // background: light red, text: black
+  'alkaline-earth-metal': (#ffdead, #000000), // background: pale yellow, text: black
+  'transition-metal': (#ffc0c0, #000000), // background: light pink, text: black
+  'post-transition-metal': (#cccccc, #000000), // background: gray, text: black
+  'metalloid': (#ffec44, #000000), // background: olive green, text: black
+  'nonmetal': (#a0ffa0, #000000), // background: light green, text: black
+  'halogen': (#ffff99, #000000), // background: pale yellow, text: black
+  'noble-gas': (#c0ffff, #000000), // background: light blue, text: black
+  'lanthanide': (#ffbfff, #000000), // background: pinkish purple, text: black
+  'actinide': (#ff99cc, #000000) // background: pinkish red, text: black
+);
+
+// Main container
+.periodic-table-container {
+  display: flex;
+  justify-content: center;
+
+  // max-width: 1200px;
+  // width: 100vh;
+  // margin-top: 50px ;
+  // padding: 10px;
+
+}
+
+// Grid layout
+.periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 3px;
+  // margin-bottom: 10px;
+  row-gap: 5px; // Regular gap between rows
+}
+
+// Element styling
+.element {
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  width: 80px;
+  padding: 4px;
+  text-align: center;
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 0 10px $shadow-color;
+    color: #ffffff; // Optional hover effect for white text
+    font-weight: bold; // Make hovered elements bold for emphasis
+  }
+  
+  // Element content
+  .atomic-number {
+    font-size: 0.7em;
+    text-align: left;
+    color: inherit; // Use inherited text color from parent element
+  }
+  
+  .symbol {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: inherit; // Use inherited text color from parent element
+  }
+  
+  .name,
+  .atomic-mass {
+    font-size: 0.6em;
+    color: inherit; // Use inherited text color from parent element
+    opacity: .8; // Slightly dim the less important information for readability
+  }
+  .element-card {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    background-color: inherit;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    padding: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: left;
+
+    .symbol-container {
+      display: flex; /* Use flexbox for centering */
+      justify-content: center; /* Center content horizontally */
+      align-items: center; /* Center content vertically */
+      margin: 10px 0; /* Add spacing above and below */
+      font-size: 40px;
+    }
+
+    h3 {
+      text-align: center;
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #1a1a1a;
+    }
+
+    p {
+      margin: 3px 0;
+      font-size: 12px;
+      color: #666;
+    }
+  }
+
+  &:hover .element-card {
+    display: block;
+  }
+}
+
+// Generate category-specific styles with background and text colors
+@each $category, $colors in $category-colors {
+   $bg-color : nth($colors ,1);
+   $text-color : nth($colors ,2);
+  
+   .#{$category} {
+     background-color : $bg-color !important ;
+     color:$text-color!important ;
+   }
+}
+
+
+.legend-container {
+  margin-top: 10px;
+  padding: 10px;
+  background: #1a1a1a; /* Light background for contrast */
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  width: fit-content;
+  font-size: 15px;
+  color: #333; /* Text color */
+}
+
+.legend-container h3 {
+  font-size: 1.5rem;
+  color: #e0e0e0; /* Heading color */
+  margin-bottom: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+
+  .legend-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 8px; /* Rounded corners for color boxes */
+    border: solid $border-color; /* Optional border for better visibility */
+    background-color: inherit; /* Dynamically set background color */
+  }
+}
+
+// Generate category-specific styles for legend items using $category-colors
+@each $category, $colors in $category-colors {
+   $bg-color : nth($colors,1);
+   $text-color : nth($colors,2);
+
+   .#{$category} .legend-color {
+     background-color : $bg-color !important; /* Match category color */
+     border-color : darken($bg-color,10%); /* Add slight contrast to the border */
+   }
+
+   .#{$category} {
+     color : $text-color !important; /* Match text color for better readability */
+   }
+}

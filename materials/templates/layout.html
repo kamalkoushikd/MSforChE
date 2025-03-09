@@ -8,7 +8,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
+    {% block head %}
+    {% endblock %}
+    
 </head>
 <body>
 
@@ -23,12 +25,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'materials:home' %}">Home</a>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'materials:about' %}">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'materials:contact' %}">Contact</a>
                     </li>
+                    
                 </ul>
             </div>
         </div>

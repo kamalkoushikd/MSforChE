@@ -23,7 +23,7 @@ class latticeRender {
         this.container.appendChild(this.renderer.domElement);
         this.renderer.setClearColor(0x0f0f12);
 
-        this.camera.position.set(5, 5, 5);
+        this.camera.position.set(3, 3, 3);
         this.camera.lookAt(0, 0, 0);
 
         // Add lights

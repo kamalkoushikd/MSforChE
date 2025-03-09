@@ -1,0 +1,248 @@
+.periodic-table-container {
+  display: flex;
+  justify-content: center; }
+
+.periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 3px;
+  row-gap: 5px; }
+
+.element {
+  border: 1px solid #333;
+  border-radius: 10px;
+  width: 80px;
+  padding: 4px;
+  text-align: center;
+  transition: transform 0.2s; }
+  .element:hover {
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    font-weight: bold; }
+  .element .atomic-number {
+    font-size: 0.7em;
+    text-align: left;
+    color: inherit; }
+  .element .symbol {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: inherit; }
+  .element .name,
+  .element .atomic-mass {
+    font-size: 0.6em;
+    color: inherit;
+    opacity: .8; }
+  .element .element-card {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    background-color: inherit;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: left; }
+    .element .element-card .symbol-container {
+      display: flex;
+      /* Use flexbox for centering */
+      justify-content: center;
+      /* Center content horizontally */
+      align-items: center;
+      /* Center content vertically */
+      margin: 10px 0;
+      /* Add spacing above and below */
+      font-size: 40px; }
+    .element .element-card h3 {
+      text-align: center;
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #1a1a1a; }
+    .element .element-card p {
+      margin: 3px 0;
+      font-size: 12px;
+      color: #666; }
+  .element:hover .element-card {
+    display: block; }
+
+.alkali-metal {
+  background-color: #ff8a8a !important;
+  color: #000000 !important; }
+
+.alkaline-earth-metal {
+  background-color: #ffdead !important;
+  color: #000000 !important; }
+
+.transition-metal {
+  background-color: #ffc0c0 !important;
+  color: #000000 !important; }
+
+.post-transition-metal {
+  background-color: #cccccc !important;
+  color: #000000 !important; }
+
+.metalloid {
+  background-color: #ffec44 !important;
+  color: #000000 !important; }
+
+.nonmetal {
+  background-color: #a0ffa0 !important;
+  color: #000000 !important; }
+
+.halogen {
+  background-color: #ffff99 !important;
+  color: #000000 !important; }
+
+.noble-gas {
+  background-color: #c0ffff !important;
+  color: #000000 !important; }
+
+.lanthanide {
+  background-color: #ffbfff !important;
+  color: #000000 !important; }
+
+.actinide {
+  background-color: #ff99cc !important;
+  color: #000000 !important; }
+
+.legend-container {
+  margin-top: 10px;
+  padding: 10px;
+  background: #1a1a1a;
+  /* Light background for contrast */
+  border: 1px solid #333;
+  border-radius: 8px;
+  width: fit-content;
+  font-size: 15px;
+  color: #333;
+  /* Text color */ }
+
+.legend-container h3 {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  /* Heading color */
+  margin-bottom: 10px; }
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; }
+  .legend-item .legend-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 8px;
+    /* Rounded corners for color boxes */
+    border: solid #333;
+    /* Optional border for better visibility */
+    background-color: inherit;
+    /* Dynamically set background color */ }
+
+.alkali-metal .legend-color {
+  background-color: #ff8a8a !important;
+  /* Match category color */
+  border-color: #ff5757;
+  /* Add slight contrast to the border */ }
+
+.alkali-metal {
+  color: #000000 !important;
+  /* Match text color for better readability */ }
+
+.alkaline-earth-metal .legend-color {
+  background-color: #ffdead !important;
+  /* Match category color */
+  border-color: #ffc97a;
+  /* Add slight contrast to the border */ }
+
+.alkaline-earth-metal {
+  color: #000000 !important;
+  /* Match text color for better readability */ }
+
+.transition-metal .legend-color {
+  background-color: #ffc0c0 !important;
+  /* Match category color */
+  border-color: #ff8d8d;
+  /* Add slight contrast to the border */ }
+
+.transition-metal {
+  color: #000000 !important;
+  /* Match text color for better readability */ }
+
+.post-transition-metal .legend-color {
+  background-color: #cccccc !important;
+  /* Match category color */
+  border-color: #b3b3b3;
+  /* Add slight contrast to the border */ }
+
+.post-transition-metal {
+  color: #000000 !important;
+  /* Match text color for better readability */ }
+
+.metalloid .legend-color {
+  background-color: #ffec44 !important;
+  /* Match category color */
+  border-color: #ffe711;
+  /* Add slight contrast to the border */ }
+
+.metalloid {
+  color: #000000 !important;
+  /* Match text color for better readability */ }
+
+.nonmetal .legend-color {
+  background-color: #a0ffa0 !important;
+  /* Match category color */
+  border-color: #6dff6d;
+  /* Add slight contrast to the border */ }
+
+.nonmetal {
+  color: #000000 !important;
+  /* Match text color for better readability */ }
+
+.halogen .legend-color {
+  background-color: #ffff99 !important;
+  /* Match category color */
+  border-color: #ffff66;
+  /* Add slight contrast to the border */ }
+
+.halogen {
+  color: #000000 !important;
+  /* Match text color for better readability */ }
+
+.noble-gas .legend-color {
+  background-color: #c0ffff !important;
+  /* Match category color */
+  border-color: #8dffff;
+  /* Add slight contrast to the border */ }
+
+.noble-gas {
+  color: #000000 !important;
+  /* Match text color for better readability */ }
+
+.lanthanide .legend-color {
+  background-color: #ffbfff !important;
+  /* Match category color */
+  border-color: #ff8cff;
+  /* Add slight contrast to the border */ }
+
+.lanthanide {
+  color: #000000 !important;
+  /* Match text color for better readability */ }
+
+.actinide .legend-color {
+  background-color: #ff99cc !important;
+  /* Match category color */
+  border-color: #ff66b3;
+  /* Add slight contrast to the border */ }
+
+.actinide {
+  color: #000000 !important;
+  /* Match text color for better readability */ }
+
+/*# sourceMappingURL=periodic_table.css.map */

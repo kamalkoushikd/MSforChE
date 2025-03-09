@@ -12,9 +12,14 @@ body {
     flex-direction: column;
 }
 
-h1, h2, h3 {
+h1 {
     font-family: 'Fira Code', monospace;
-    color: #1a75ff; /* Vibrant blue for headers */
+    color: #90caf9; /* Heading */
+}
+
+h3, h2 {
+    font-family: 'Fira Code', monospace;
+    color: #bbdefb; /* Subheading */
 }
 
 .navbar {
@@ -175,4 +180,63 @@ h1, h2, h3 {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically if needed */
     margin: 40px;
+}
+
+/* Dropdown Menu Styling */
+.custom-dropdown {
+    background: #121212;
+    border: 1px solid rgba(0, 102, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+
+    /* ✅ Dynamic width based on content */
+    width: auto;
+    min-width: 180px;
+    max-width: fit-content;
+    white-space: nowrap; /* Prevents line breaks */
+    overflow: visible;
+}
+
+/* Show dropdown when active */
+.nav-item.dropdown:hover .custom-dropdown,
+.nav-item.dropdown .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Dropdown Item Styling */
+.custom-dropdown .dropdown-item {
+    color: #d3e4ff; /* Light blue text */
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+/* Hover Effect */
+.custom-dropdown .dropdown-item:hover {
+    background: #003481; /* Vibrant blue hover */
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1.05);
+}
+
+@media (min-width: 992px) {
+    .custom-dropdown {
+        right: 0;
+        left: auto;
+    }
 }

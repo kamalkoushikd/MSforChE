@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/periodic_table.css' %}">
+    <link rel="stylesheet" href="{% static 'css/container.css' %}">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1 style="margin-bottom: 50px;">General Info</h1>
+    <h2>Periodic Table of Elements</h2>
+    {% include "includes/periodic_table.html" %}
+    <hr style="color: #e0e0e0; margin-top: 50px; margin-bottom: 50px;">
+
+    <div class="gen-content" id="genprop">
+        <h1 style="margin-bottom: 20px;">🔬 <u style="margin-top: 5px">General Properties </u></h1>
+            <div class="definition"> <h2><a href="https://en.wikipedia.org/wiki/Atomic_number" target="_blank">Atomic Number ⚛️</a></h2>
+                <p>The atomic number of an element is the number of protons in the nucleus of an atom. It is unique for each element and is used to identify an element.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Atomic_mass" target="_blank">Atomic Mass 🧲</a></h2>
+                <p>The atomic number represents the number of protons, while atomic mass is the weighted average of isotopes. These define the element's identity and stability. It is measured in Atomic Mass Unit (amu).</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Electron_configuration" target="_blank">Electronic Configuration 🌟</a></h2>
+                <p>Describes the arrangement of electrons in orbitals, helps determining chemical properties and reactivity 🔥.</p>
+            </div>
+    </div>
+    <div class="gen-content" id="strucprop">
+        <h1 style="margin-bottom: 20px;">🔨 <u style="margin-top: 5px"> Structural Properties </u></h1>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Crystal_structure" target="_blank">Crystal Structure 🌌</a></h2>
+                <p>Describes the arrangement of atoms in a crystalline solid. It is determined by the arrangement of atoms, ions, or molecules in a regular repeating pattern.</p>
+                <div class="lattice-section">
+                    {% include "includes/lattice.html" %}
+                </div>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Lattice_constant" target="_blank">Lattice Constants 📏</a></h2>
+                <p>Describes the size of the unit cell in a crystal lattice. It is the distance between the lattice points in a crystal structure.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Density" target="_blank"> target="_blank"Density ⚖️</a></h2>
+                <p>Describes the mass of a substance per unit volume. It is measured in g/cm³ or kg/m³.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Atomic_packing_factor" target="_blank">Packing Factor 🗃️</a></h2>
+                <p>Packing factor indicates how tightly atoms are packed. These affect material weight and mechanical properties</p>
+            </div>
+    </div>
+    <div class="gen-content" id="mechprop">
+        <h1 style="margin-bottom: 20px;">🔧 <u style="margin-top: 5px"> Mechanical Properties </u></h1>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Hardness" target="_blank">Hardness 💎</a></h2>
+                <p>Measures resistance to deformation or scratching. Important for wear resistance in materials.</p>
+                <ul>
+                    <li><h3><a href="https://en.wikipedia.org/wiki/Mohs_scale" target="_blank" style="text-decoration: none">Mohs Scale 📏</a></h3></li>
+                    The Mohs scale of hardness ranks minerals from 1 (talc, softest) to 10 (diamond, hardest) based on which can scratch others. Created by Friedrich Mohs in 1812, it's used by geologists for mineral identification, though the scale is non-linear.
+                </ul>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Tensile_strength" target="_blank">Tensile Strength 🪢</a></h2>
+                <p>Maximum stress a material can withstand while being stretched. Crucial for structural applications.</p>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Stress_strain_ductile.svg/1920px-Stress_strain_ductile.svg.png" alt="Stress-strain curve" class="graph-image">
+                </div>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Ductility" target="_blank">Ductility & Brittleness 🧵</a></h2>
+                <p>Ductility is the ability to deform plastically; brittleness is the tendency to break without deformation. These determine material flexibility.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Elastic_modulus" target="_blank">Elastic Modulus 📐</a></h2>
+                <p>Indicates stiffness by measuring stress-strain response. Essential for load-bearing applications.</p>
+            </div>
+    </div>
+    <div class="gen-content" id="optprop">
+        <h1 style="margin-bottom: 20px;">🔮 <u style="margin-top: 5px"> Optical Properties </u></h1>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Color" target="_blank">Color & Transparency 🎨</a></h2>
+                <p>Determines how light interacts with the material (e.g., absorption, reflection). Useful in aesthetics and optics.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Refractive_index" target="_blank">Refractive Index 🔍</a></h2>
+                <p>Measures how light bends when passing through a material. Critical for lenses and optical devices.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Photoluminescence" target="_blank">Photoluminescence 💡</a></h2>
+                <p>Emission of light after absorbing photons. Used in LEDs and sensors when applicable.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Absorption_spectrum" target="_blank">Absorption & Emission Spectra 📊</a></h2>
+                <p>Characterizes energy levels and transitions in atoms or molecules, aiding in spectroscopy applications.</p>
+            </div>
+    </div>
+    <div class="gen-content" id="chemprop">
+        <h1 style="margin-bottom: 20px;">🔥 <u style="margin-top: 5px"> Chemical Properties </u></h1>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Oxidation_state" target="_blank">Common Oxidation States ⚗️</a></h2>
+                <p>Indicates typical charges during reactions, crucial for predicting chemical behavior.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Reactivity_(chemistry)" target="_blank">Reactivity with Oxygen, Water, and Acids ⚛️</a></h2>
+                <p>Defines how elements interact with common substances, important for corrosion resistance and reactions.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Electronegativity" target="_blank">Electronegativity & Ionization Energy ⚡</a></h2>
+                <p>Electronegativity shows electron affinity; ionization energy indicates energy needed to remove an electron. Both predict bonding behavior.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Chemical_compound" target="_blank">Most Common Compounds 🧪</a></h2>
+                <p>Examples like H2O or CO2 highlight practical uses and natural occurrences of elements.</p>
+            </div>
+    </div>
+    <div class="gen-content" id="physprop">
+        <h1 style="margin-bottom: 20px;">🧊 <u style="margin-top: 5px"> Physical Properties </u></h1>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Melting_point" target="_blank">Melting & Boiling Points 🌡️</a></h2>
+                <p>Indicate phase change temperatures, critical for material applications.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Thermal_conductivity" target="_blank">Thermal Conductivity 🌡️</a></h2>
+                <p>Measures heat transfer efficiency, vital for insulation or heat dissipation materials.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Specific_heat_capacity" target="_blank">Specific Heat Capacity 🌡️</a></h2>
+                <p>Energy required to raise temperature per unit mass; important for thermal management.</p>
+            </div>
+            <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Thermal_expansion" target="_blank">Thermal Expansion 🌡️</a></h2>
+                <p>Indicates how well a material expands or contracts with temperature changes.</p>
+            </div>
+    </div>
+{% endblock %}
