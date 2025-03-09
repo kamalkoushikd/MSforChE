@@ -17,14 +17,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Enforce HTTPS
-SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Cookies should only be sent over HTTPS
-CSRF_COOKIE_SECURE = True
+# Protect session & CSRF cookies
 SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
-# Content Security Policy (Optional)
+# Enable HTTP Strict Transport Security (HSTS)
 SECURE_HSTS_SECONDS = 31536000  # 1 year
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
