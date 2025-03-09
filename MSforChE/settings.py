@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$5_gsnuru@%o#j05*zkeupi6bi2^%l@rieopyp*cbsxe-+zxga
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '192.168.0.100', '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '192.168.0.100', '127.0.0.1', '13.60.23.37', 'materialscienceweb.xyz', 'www.materialscienceweb.xyz']
 
 
 # Application definition
