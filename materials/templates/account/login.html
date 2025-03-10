@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{%load static%}
+{%block title%}
+Login Page
+{% endblock %}
+{% block head %}
+    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Login</h2>
+        <button onclick="googleLogin()" class="btn btn-danger">Google</button>
+    </div>
+
+    
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyBfy8xJ0PsiY0iGDHwx1LeX2GnTDN-8K-E",
+          authDomain: "matscienceweb.firebaseapp.com",
+          projectId: "matscienceweb",
+          storageBucket: "matscienceweb.firebasestorage.app",
+          messagingSenderId: "675001569247",
+          appId: "1:675001569247:web:ab3349b822b00b46cefe6a",
+          measurementId: "G-280YE5175R"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        async function googleLogin() {
+            const provider = new GoogleAuthProvider();
+        
+            try {
+              const result = await signInWithPopup(auth, provider);
+              const user = result.user;
+        
+              // Get the user's ID token
+              const token = await user.getIdToken();
+        
+              console.log("User signed in:", user);
+              console.log("ID Token:", token);
+        
+              // Send the token to your backend for verification/authentication
+              fetch('/firebase-login/   ', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({}),
+              })
+              .then(response => response.json())
+              .then(data => {
+                console.log("Backend Response:", data)
+                console.log("Backend Response:", data);
+                    if (data.status === 'success') {
+                        // Redirect upon successful response
+                        window.location.href = '/';  // Replace '/materials/' with your desired redirect URL
+                    } else {
+                        console.error("Authentication failed:", data.message);
+                        // Handle the error (e.g., display an error message)
+                        alert(data.message); // For example, show an alert
+                    }
+            })
+              .catch(error => console.error("Error sending token to backend:", error));
+            } catch (error) {
+              console.error("Error during sign-in:", error);
+            }
+          }
+        
+          // Expose googleLogin to the global scope so it can be used in the HTML onclick
+          window.googleLogin = googleLogin;
+      </script>
+{% endblock %}

@@ -76,6 +76,7 @@ $category-colors: (
     opacity: .8; // Slightly dim the less important information for readability
   }
   .element-card {
+    text-align: center;
     display: none;
     position: absolute;
     top: 100%;
@@ -83,9 +84,9 @@ $category-colors: (
     transform: translateX(-50%);
     width: 220px;
     background-color: inherit;
+    border-radius: 15px;
     border: 1px solid $border-color;
-    border-radius: 5px;
-    padding: 6px;
+    padding: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     text-align: left;

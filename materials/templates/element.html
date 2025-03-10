@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/container.css' %}">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center element-card">
+                <div class="card-header">Element</div>
+                <div class="card-body">
+                    <h2 class="card-title">{{ element.name }} ({{ element.symbol }})</h2>
+                    <h5 class="card-subtitle mb-2 text-muted">Atomic Number: {{ element.atomic_number }}</h5>
+                    <p class="card-text">Atomic Mass: {{ element.atomic_mass }} u</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h2>🔬 General Properties</h2>
+            <ul>
+                <li><strong>Electron Configuration:</strong> {{ element.electron_configuration }}</li>
+                {% comment %} <li><strong>Appearance:</strong> {{ element.appearance }}</li> {% endcomment %}
+            </ul>
+        </div>
+    </div>
+    
+    <hr>
+    
+    <h2>🏗 Structural Properties</h2>
+    <ul>
+        {% comment %} <li><strong>Crystal Structure:</strong> {{ element.crystal_structure }}</li>
+        <li><strong>Lattice Parameters:</strong> {{ element.lattice_parameters }}</li> {% endcomment %}
+        <li><strong>Density:</strong> {{ element.density }} g/cm³</li>
+    </ul>
+    
+    <hr>
+    
+    <h2>🛠 Mechanical Properties</h2>
+    <ul>
+        {% comment %} <li><strong>Mohs Hardness:</strong> {{ element.hardness_mohs }}</li>
+        <li><strong>Tensile Strength:</strong> {{ element.tensile_strength }}</li>
+        <li><strong>Elastic Modulus:</strong> {{ element.elastic_modulus }}</li> {% endcomment %}
+    </ul>
+    
+    <hr>
+    
+    <h2>💎 Optical Properties</h2>
+    <ul>
+        {% comment %} <li><strong>Refractive Index:</strong> {{ element.refractive_index }}</li>
+        <li><strong>Color & Transparency:</strong> {{ element.color_transparency }}</li> {% endcomment %}
+    </ul>
+    
+    <hr>
+    
+    <h2>🔥 Chemical Properties</h2>
+    <ul>
+        <li><strong>Common Oxidation States:</strong> {{ element.oxidation_states }}</li>
+        <li><strong>Electronegativity:</strong> {{ element.electronegativity }}</li>
+        {% comment %} <li><strong>Reactivity:</strong> {{ element.reactivity }}</li> {% endcomment %}
+    </ul>
+    
+    <hr>
+    
+    <h2>🌡 Physical Properties</h2>
+    <ul>
+        <li><strong>Melting Point:</strong> {{ element.melting_point }}°C</li>
+        <li><strong>Boiling Point:</strong> {{ element.boiling_point }}°C</li>
+        {% comment %} <li><strong>Thermal Conductivity:</strong> {{ element.thermal_conductivity }} W/m·K</li> {% endcomment %}
+    </ul>
+</div>
+{% endblock %}

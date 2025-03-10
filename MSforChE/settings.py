@@ -11,10 +11,17 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from firebase_admin import credentials, initialize_app
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'firebase_auth.authentication.FirebaseAuthentication',
+    ),
+}
 
 # Enforce HTTPS
 # Protect session & CSRF cookies
@@ -41,7 +48,56 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'materials',
     'django_extensions',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    # 'materials.firebase_auth.FirebaseBackend',
+]
+
+
+FIREBASE_KEY_FILE = os.path.join(BASE_DIR, 'firebase_key.json')
+
+cred = credentials.Certificate(FIREBASE_KEY_FILE)
+initialize_app(cred)
+
+
+LOGIN_URL = '/firebase-login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/firebase-login'  # URL for your login page
+
+# URLs that do not require authentication (e.g., static files or public pages)
+LOGIN_EXEMPT_URLS = [
+    r'^static/',  # Allow access to static files
+    r'^public/',
+    r'^firebase-login',  # Example: add public pages here
+]
+
+# Add your social account credentials
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+        'APP': {
+            'client_id': '695918440103-2kr320ct6s172t9e22b898b76r12ooje.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,8 +107,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
+    'materials.middleware.FirebaseAuthMiddleware',
 ]
 
+# ACCOUNT_ADAPTER = 'materials.adapters.RestrictEmailDomainAdapter'
 ROOT_URLCONF = 'MSforChE.urls'
 
 TEMPLATES = [
@@ -84,6 +143,7 @@ DATABASES = {
     }
 }
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -129,3 +189,16 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Allauth settings
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SIGNUP_PASSWORD_VERIFICATION = False
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_UNIQUE_EMAIL = True
+
+

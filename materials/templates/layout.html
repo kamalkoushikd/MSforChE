@@ -14,6 +14,7 @@
     
 </head>
 <body>
+    
 
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
@@ -39,7 +40,13 @@
         </div>
     </nav>
 
-    <main style="position: relative; z-index: 1;">
+    {% if user.is_authenticated %}
+        <p hidden>Welcome, {{ user.username }}! <a href="{% url 'account_logout' %}">Logout</a></p>
+    {% else %}
+        <p hidden><a href="{% url 'account_login' %}">Login</a></p>
+    {% endif %}
+
+    <main style="position: relative; z-index: 1;" class="fade-in">
         <div class="container mt-5">
         {% block content %}
         <!-- Content goes here -->

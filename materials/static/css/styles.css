@@ -207,5 +207,12 @@ h3, h2 {
   .custom-dropdown {
     right: 0;
     left: auto; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+.fade-in {
+  animation: fadeIn 1s ease-in-out; }
 
 /*# sourceMappingURL=styles.css.map */

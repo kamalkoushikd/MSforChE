@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 class Element(models.Model):
     atomic_number = models.IntegerField(primary_key=True)
@@ -121,3 +121,10 @@ class Element(models.Model):
                 'row': self.period_number,
                 'column': self.group_number
             }
+
+
+def get_or_create_user(firebase_user):
+    uid = firebase_user['uid']
+    email = firebase_user.get('email')
+    user, created = User.objects.get_or_create(username=uid, defaults={'email': email})
+    return user

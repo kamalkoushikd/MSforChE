@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="{% static 'css/container.css' %}">
     <link rel="stylesheet" href="{% static 'css/general.css' %}">
 {% endblock %}
-
+{% block title%}
+General Information
+{% endblock %}
 {% block content %}
     <h1 style="margin-bottom: 50px;">General Info</h1>
     <h2>Periodic Table of Elements</h2>
@@ -27,6 +29,7 @@
                 <p>Describes the arrangement of electrons in orbitals, helps determining chemical properties and reactivity 🔥.</p>
             </div>
     </div>
+    <hr>
     <div class="gen-content" id="strucprop">
         <h1 style="margin-bottom: 20px;">🔨 <u style="margin-top: 5px"> Structural Properties </u></h1>
             <div class="definition">
@@ -49,6 +52,7 @@
                 <p>Packing factor indicates how tightly atoms are packed. These affect material weight and mechanical properties</p>
             </div>
     </div>
+    <hr>
     <div class="gen-content" id="mechprop">
         <h1 style="margin-bottom: 20px;">🔧 <u style="margin-top: 5px"> Mechanical Properties </u></h1>
             <div class="definition">
@@ -67,14 +71,22 @@
                 </div>
             </div>
             <div class="definition">
+                <h2><a href="https://en.wikipedia.org/wiki/Toughness" target="_blank">Toughness 💪</a></h2>
+                <p>Toughness is the ability of material to absarb energy and plastically deform without fracturing. It opposes the rupture of the material. It is characterized by the area under the Stress-Strain Curve.</p>
+                </p>
+            </div>
+            <div class="definition">
                 <h2><a href="https://en.wikipedia.org/wiki/Ductility" target="_blank">Ductility & Brittleness 🧵</a></h2>
-                <p>Ductility is the ability to deform plastically; brittleness is the tendency to break without deformation. These determine material flexibility.</p>
+                <p>Ductility is the ability to deform plastically. Brittleness is the tendency to break without deformation. These determine material flexibility.
+                    They are characterized by the amount strain taken from the yield point to the fracture point. Higher strain between fracture implies more ductility.</p>
+                </p>
             </div>
             <div class="definition">
                 <h2><a href="https://en.wikipedia.org/wiki/Elastic_modulus" target="_blank">Elastic Modulus 📐</a></h2>
                 <p>Indicates stiffness by measuring stress-strain response. Essential for load-bearing applications.</p>
             </div>
     </div>
+    <hr>
     <div class="gen-content" id="optprop">
         <h1 style="margin-bottom: 20px;">🔮 <u style="margin-top: 5px"> Optical Properties </u></h1>
             <div class="definition">
@@ -94,6 +106,7 @@
                 <p>Characterizes energy levels and transitions in atoms or molecules, aiding in spectroscopy applications.</p>
             </div>
     </div>
+    <hr>
     <div class="gen-content" id="chemprop">
         <h1 style="margin-bottom: 20px;">🔥 <u style="margin-top: 5px"> Chemical Properties </u></h1>
             <div class="definition">
@@ -113,6 +126,7 @@
                 <p>Examples like H2O or CO2 highlight practical uses and natural occurrences of elements.</p>
             </div>
     </div>
+    <hr>
     <div class="gen-content" id="physprop">
         <h1 style="margin-bottom: 20px;">🧊 <u style="margin-top: 5px"> Physical Properties </u></h1>
             <div class="definition">
