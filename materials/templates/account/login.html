@@ -52,7 +52,11 @@ Login Page
             const provider = new GoogleAuthProvider();
 
             try {
-                const result = await signInWithPopup(auth, provider);
+                const result = await signInWithPopup(auth, provider).then((result) => {
+                    console.log("logged in",result);
+                }).catch((error) => {
+                    console.log("error",error);
+                });
                 const user = result.user;
                 const token = await user.getIdToken();
 
