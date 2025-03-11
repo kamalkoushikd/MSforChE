@@ -54,7 +54,7 @@ Login Page
             addCrossOriginOpenerPolicy();
 
             try {
-                const result = await signInWithRedirect(auth, provider)
+                const result = await signInWithPopup(auth, provider)
                 const token = result?.credential?.accessToken;
                 const user = result?.user;
                 console.log("User signed in:", user);
