@@ -38,8 +38,6 @@ Login Page
         const analytics = getAnalytics(app);
         const auth = getAuth(app);
 
-        // Fix cookie settings
-        document.cookie = "g_state=your-value; SameSite=None; Secure";
 
         // Set persistence to LOCAL
         setPersistence(auth, browserLocalPersistence)
@@ -73,7 +71,7 @@ Login Page
                 const data = await response.json();
 
                 if (data.status === 'success') {
-                    window.location.href = '/'; // ✅ Clean redirect
+                    window.location.replace('/'); // ✅ Clean redirect
                 } else {
                     console.error("Authentication failed:", data.message);
                     alert(data.message);

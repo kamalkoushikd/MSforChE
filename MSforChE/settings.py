@@ -188,4 +188,8 @@ ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_UNIQUE_EMAIL = True
 
+CORS_ALLOWED_ORIGINS = [
+    "https://matscienceweb.firebaseapp.com",  #  The EXACT origin!
+]
 
+CORS_ALLOW_CREDENTIALS = True
