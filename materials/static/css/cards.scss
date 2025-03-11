@@ -1,0 +1,209 @@
+/* Variables */
+:root {
+    --primary-color: #fff;
+    --text-color: inherit;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --card-width: 600px; /* ✅ Ensure enough width */
+    --card-height: 400px;
+    --card-margin: 20px;
+}
+
+.element-card {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    justify-self: center;
+    background-color: var(--background-color);
+    // width: fit-content;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Full-width section */
+.full-width-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    text-align: center;
+}
+
+/* Section title */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+/* Carousel container */
+.carousel-container {
+    position: relative;
+    width: calc(var(--card-width) + 40px);
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+    min-height: calc(var(--card-height) + 40px);
+}
+
+/* Scrolling wrapper */
+.scrolling-wrapper {
+    display: flex;
+    gap: 20px; /* ✅ Add spacing between cards */
+    transition: transform 0.5s ease;
+}
+
+/* Property card */
+.property-card {
+    flex: 0 0 var(--card-width);
+    width: var(--card-width); /* ✅ Explicit width */
+    height: var(--card-height);
+    background-color: var(--primary-color);
+    box-shadow: 0 10px 20px var(--shadow-color);
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 50%; 
+    transform: translateX(-50%);
+    transition: opacity 0.5s ease;
+    white-space: normal; /* ✅ Prevent forced line breaks */
+    overflow: hidden;
+}
+
+/* First card is visible by default */
+.property-card:first-child {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+/* Active card */
+.property-card.active {
+    font-size: 40px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Card body */
+.card-body {
+    padding: 25px;
+    font-size: 24px;
+    line-height: 1.6;
+    h2 {
+        color:#1a75ff
+    }
+}
+
+/* Navigation */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.carousel-nav button {
+    background: var(--text-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.carousel-nav button:hover {
+    background: #555;
+}
+
+/* Indicators */
+.indicators {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.indicator-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator-dot.active {
+    background-color: var(--text-color);
+}
+
+/* ✅ Element category colors */
+.alkali-metal {
+    --background-color: #ff8a8a;
+    --text-color: #000;
+}
+
+.alkaline-earth-metal {
+    --background-color: #ffdead;
+    --text-color: #000;
+}
+
+.transition-metal {
+    --background-color: #ffc0c0;
+    --text-color: #000;
+}
+
+.post-transition-metal {
+    --background-color: #cccccc;
+    --text-color: #000;
+}
+
+.metalloid {
+    --background-color: #ffec44;
+    --text-color: #000;
+}
+
+.nonmetal {
+    --background-color: #a0ffa0;
+    --text-color: #000;
+}
+
+.halogen {
+    --background-color: #ffff99;
+    --text-color: #000;
+}
+
+.noble-gas {
+    --background-color: #c0ffff;
+    --text-color: #000;
+}
+
+.lanthanide {
+    --background-color: #ffbfff;
+    --text-color: #000;
+}
+
+.actinide {
+    --background-color: #ff99cc;
+    --text-color: #000;
+}
+
+/* ✅ Hover effect to reflect element color */
+.property-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateX(-50%) scale(1.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.element-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}

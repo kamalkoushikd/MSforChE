@@ -14,7 +14,7 @@
             <div class="element {{ element.group_block|slugify }}" 
                  style="grid-row: {{ element.display_position.row }}; grid-column: {{ element.display_position.column }};" 
                  data-number="{{ element.atomic_number }}" 
-                 data-symbol="{{ element.symbol }}">
+                 data-symbol="{{ element.symbol }}" onclick="window.location.href = '/element/{{ element.name|slugify }}'">
                 <div class="atomic-number">{{ element.atomic_number }}</div>
                 <div class="symbol">{{ element.symbol }}</div>
                 <div class="name">{{ element.name }}</div>

@@ -19,6 +19,7 @@ from django.contrib.auth.decorators import login_required
 json_file_path = os.path.join(os.path.dirname(__file__), 'static/data/team.json')
 with open(json_file_path, 'r') as file:
     team_data = json.load(file)
+    research = json.load(open(os.path.join(os.path.dirname(__file__), 'static/data/research.json')))
 
 elements = Element.objects.all()
 
@@ -47,10 +48,15 @@ def general(request):
     })
 @login_required
 def get_element_info(request, name):
-    element = get_object_or_404(Element, name=name.capitalize())
-    return render(request, 'element.html', {
-        'element': element,
-    })
+   try:
+        element = Element.objects.get(name=name.capitalize())
+
+        print(element.group_block)
+        return render(request, 'element.html', {
+            'element': element, "research": research["elements"][name.capitalize()],
+            })
+   except KeyError:
+       return render(request, 'lazy.html')
 
 
 @csrf_exempt
