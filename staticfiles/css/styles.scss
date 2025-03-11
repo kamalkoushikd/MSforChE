@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson:wght@400;700&display=swap');
+
+body {
+    font-family: 'Fira Code', monospace;
+    background: radial-gradient(circle at top left, #0a0a0a 50%, #002147); /* Radial gradient background with black as the dominant color */
+    color: #e0e0e0;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Fira Code', monospace;
+    color: #90caf9; /* Heading */
+}
+
+h3, h2 {
+    font-family: 'Fira Code', monospace;
+    color: #bbdefb; /* Subheading */
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background: #0a0a0a; /* Radial gradient background */
+    padding: 10px 0;
+    box-shadow: 0 4px 10px #000b204d;
+    border-bottom: 2px solid #003481; /* Blue border */
+
+    a {
+        color: #0066ff; /* White text color */
+        text-decoration: none;
+        padding: 10px 20px;
+        font-weight: 600;
+        margin: 0 10px;
+        border-radius: 12px; /* Rounded buttons */
+        transition: color 0.3s, transform 0.3s;
+
+        &:hover, &.active {
+            color: #d3e4ff;
+            /* Scale up on hover */
+        }
+        &::selection{
+            background-color:#df056b;
+            color: #f3e3c6;
+        }
+        
+    }
+
+    .navbar-brand{
+        transition: color 0.3s, background 0.3s, transform 0.3s;
+        &:hover{
+            background: #0552c4;
+
+            color: #e0e0e0;
+            transform: scale(1.05);
+        }
+        &::selection{
+            background-color:#df056b;
+            color: #f3e3c6;
+        }
+    }
+
+    
+}
+
+
+
+.footer {
+    background: #0d0d1f;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.5);
+
+    a {
+        color: #1a75ff;
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+            color: #00d4ff;
+            text-decoration: underline;
+        }
+    }
+}
+
+.team-section {
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 15px;
+    color: #333;
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        // font-weight: 700;
+        color: #1a75ff; /* White for headings */
+    }
+}
+
+.team-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.team-card {
+    background: #2a2a3b; /* Darker background color */
+    border: 2px solid #00388d; /* Blue border */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    height: 350px;
+    text-align: center;
+    transition: transform 0.25s, box-shadow 0.25s;
+    color: #f0f0f0; /* Light text color */
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 30px rgba(1, 46, 180, 0.267);
+    }
+
+    img {
+        border-radius: 50%;
+        width: 125px;
+        height: 125px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #ffffff; /* White for headings */
+    }
+
+    p {
+        font-size: 1rem;
+        color: #f0f0f0; /* Light gray for text */
+    }
+}
+
+.custom-button{
+    background: #1a75ff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    width: 150px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+    a{
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    &:hover {
+        background: #0552c4;
+        transform: scale(1.05);
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if needed */
+    margin: 40px;
+}
+
+/* Dropdown Menu Styling */
+.custom-dropdown {
+    background: #121212;
+    border: 1px solid rgba(0, 102, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+
+    /* ✅ Dynamic width based on content */
+    width: auto;
+    min-width: 180px;
+    max-width: fit-content;
+    white-space: nowrap; /* Prevents line breaks */
+    overflow: visible;
+}
+
+/* Show dropdown when active */
+.nav-item.dropdown:hover .custom-dropdown,
+.nav-item.dropdown .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Dropdown Item Styling */
+.custom-dropdown .dropdown-item {
+    color: #d3e4ff; /* Light blue text */
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+/* Hover Effect */
+.custom-dropdown .dropdown-item:hover {
+    background: #003481; /* Vibrant blue hover */
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1.05);
+}
+
+@media (min-width: 992px) {
+    .custom-dropdown {
+        right: 0;
+        left: auto;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}

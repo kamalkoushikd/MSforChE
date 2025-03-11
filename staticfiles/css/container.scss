@@ -1,0 +1,132 @@
+$lattice-border: #00388d;
+$lattice-bg: #2a2a3b;
+$lattice-highlight: #1a75ff;
+$control-bg: rgba(10, 10, 10, 0.85);
+$selection-bg: #df056b;
+$selection-text: #f3e3c6;
+
+/* Main container */
+.lattice-container {
+    border: 2px solid $lattice-border;
+    border-radius: 12px;
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    height: 300px;
+    margin: 20px auto;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3), 0 0 30px rgba(26, 117, 255, 0.1);
+    overflow: hidden;
+    background-color: $lattice-bg;
+
+    canvas {
+        border-radius: 8px;
+        outline: none;
+    }
+
+    ::selection {
+        background-color: $selection-bg;
+        color: $selection-text;
+    }
+}
+
+/* Control Panel */
+.controls {
+    position: relative;
+    z-index: 2;
+    background-color: $control-bg;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid $lattice-border;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    max-width: 200px;
+
+    &:hover {
+        box-shadow: 0 4px 15px rgba($lattice-highlight, 0.3);
+        transform: translateY(-2px);
+    }
+
+    h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+        color: $lattice-highlight;
+        font-family: 'Fira Code', monospace;
+        font-weight: 600;
+        font-size: 18px;
+        border-bottom: 2px solid $lattice-border;
+        padding-bottom: 8px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #e0e0e0;
+        display: flex;
+        align-items: center;
+        font-family: 'Fira Code', monospace;
+
+        &:before {
+            content: '›';
+            color: $lattice-highlight;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .lattice-container {
+        height: 400px;
+    }
+
+    .controls {
+        top: 10px;
+        left: 10px;
+        padding: 15px;
+        max-width: 200px;
+
+        h3 {
+            font-size: 16px;
+        }
+
+        li {
+            font-size: 12px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .lattice-container {
+        height: 350px;
+    }
+
+    .controls {
+        position: relative;
+        width: 90%;
+        max-width: none;
+        margin: 10px auto;
+        text-align: center;
+
+        h3 {
+            font-size: 14px;
+        }
+
+        li {
+            font-size: 12px;
+            justify-content: center;
+        }
+    }
+}
