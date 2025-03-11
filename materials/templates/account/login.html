@@ -21,7 +21,7 @@ Login Page
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-        import { getAuth, GoogleAuthProvider, signInWithPopup, setPersistence, browserLocalPersistence, AuthError } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, setPersistence, browserLocalPersistence} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 
         // Firebase configuration
         const firebaseConfig = {
@@ -79,7 +79,7 @@ Login Page
                 }
             } catch (error) {
 
-              if (error instanceof AuthError && error.code === 'auth/popup-blocked') {
+              if (error.code === 'auth/popup-blocked') {
                   alert('Your browser is blocking pop-ups. Please allow pop-ups for this website or disable Enhanced Tracking Protection.');
                   // Optionally, add more specific instructions or a link to browser settings here.
               } else {
