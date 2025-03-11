@@ -57,9 +57,8 @@ Login Page
                 }).catch((error) => {
                     console.log("error",error);
                 });
-                const user = result.user;
-                const token = await user.getIdToken();
-
+                const token = result?.credential?.accessToken;
+                const user = result?.user;
                 console.log("User signed in:", user);
                 console.log("ID Token:", token);
 
