@@ -32,7 +32,7 @@ REST_FRAMEWORK = {
 SECRET_KEY = 'django-insecure-$5_gsnuru@%o#j05*zkeupi6bi2^%l@rieopyp*cbsxe-+zxga'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'corsheaders',
 ]
 
 SITE_ID = 1
@@ -81,23 +82,7 @@ LOGIN_EXEMPT_URLS = [
 ]
 
 # Add your social account credentials
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        },
-        'OAUTH_PKCE_ENABLED': True,
-        'APP': {
-            'client_id': '695918440103-2kr320ct6s172t9e22b898b76r12ooje.apps.googleusercontent.com',
-            'secret': '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',
-            'key': ''
-        }
-    }
-}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -109,6 +94,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'materials.middleware.FirebaseAuthMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 # ACCOUNT_ADAPTER = 'materials.adapters.RestrictEmailDomainAdapter'

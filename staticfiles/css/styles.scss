@@ -14,34 +14,34 @@ body {
 
 h1 {
     font-family: 'Fira Code', monospace;
-    color: #90caf9; /* Heading */
+    color: #90caf9; 
 }
 
 h3, h2 {
     font-family: 'Fira Code', monospace;
-    color: #bbdefb; /* Subheading */
+    color: #bbdefb; 
 }
 
 .navbar {
     display: flex;
     justify-content: center;
-    background: #0a0a0a; /* Radial gradient background */
+    background: #0a0a0a; 
     padding: 10px 0;
     box-shadow: 0 4px 10px #000b204d;
-    border-bottom: 2px solid #003481; /* Blue border */
+    border-bottom: 2px solid #003481;
 
     a {
-        color: #0066ff; /* White text color */
+        color: #0066ff;
         text-decoration: none;
         padding: 10px 20px;
         font-weight: 600;
         margin: 0 10px;
-        border-radius: 12px; /* Rounded buttons */
+        border-radius: 12px; 
         transition: color 0.3s, transform 0.3s;
 
         &:hover, &.active {
             color: #d3e4ff;
-            /* Scale up on hover */
+            
         }
         &::selection{
             background-color:#df056b;
@@ -101,7 +101,7 @@ h3, h2 {
         font-size: 2.5rem;
         margin-bottom: 30px;
         // font-weight: 700;
-        color: #1a75ff; /* White for headings */
+        color: #1a75ff; 
     }
 }
 
@@ -142,12 +142,12 @@ h3, h2 {
     h3 {
         font-size: 1.5rem;
         margin-bottom: 20px;
-        color: #ffffff; /* White for headings */
+        color: #ffffff; 
     }
 
     p {
         font-size: 1rem;
-        color: #f0f0f0; /* Light gray for text */
+        color: #f0f0f0; 
     }
 }
 
@@ -177,8 +177,8 @@ h3, h2 {
 
 .button-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically if needed */
+    justify-content: center;
+    align-items: center;
     margin: 40px;
 }
 
@@ -196,15 +196,15 @@ h3, h2 {
     transform: translateY(10px);
     transition: all 0.3s ease-in-out;
 
-    /* ✅ Dynamic width based on content */
+    
     width: auto;
     min-width: 180px;
     max-width: fit-content;
-    white-space: nowrap; /* Prevents line breaks */
+    white-space: nowrap;
     overflow: visible;
 }
 
-/* Show dropdown when active */
+
 .nav-item.dropdown:hover .custom-dropdown,
 .nav-item.dropdown .dropdown-menu.show {
     opacity: 1;
@@ -212,9 +212,9 @@ h3, h2 {
     transform: translateY(0);
 }
 
-/* Dropdown Item Styling */
+
 .custom-dropdown .dropdown-item {
-    color: #d3e4ff; /* Light blue text */
+    color: #d3e4ff;
     width: fit-content;
     justify-content: center;
     align-items: center;
@@ -227,7 +227,7 @@ h3, h2 {
 
 /* Hover Effect */
 .custom-dropdown .dropdown-item:hover {
-    background: #003481; /* Vibrant blue hover */
+    background: #003481; 
     color: #ffffff;
     justify-content: center;
     align-items: center;

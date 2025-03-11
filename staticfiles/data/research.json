@@ -1,0 +1,151 @@
+{
+  "elements": {
+    "Sulfur": {
+      "symbol": "S",
+      "atomic_number": 16,
+      "atomic_mass": 32.06,
+      "electron_configuration": "[Ne] 3s² 3p⁴",
+      "appearance": "Pale yellow, brittle solid",
+      "structural_properties": {
+        "crystal_structure": "Orthorhombic",
+        "lattice_parameters": {
+          "a": 10.47,
+          "b": 12.87,
+          "c": 24.49
+        },
+        "density": 2.07,
+        "atomic_packing_factor": 0.37
+      },
+      "mechanical_properties": {
+        "hardness": {
+          "Mohs": 2,
+          "Vickers": 70
+        },
+        "tensile_strength": "Negligible",
+        "ductility_brittleness": "Brittle",
+        "elastic_modulus": 7.5
+      },
+      "optical_properties": {
+        "color_transparency": "Yellow, translucent in thin layers",
+        "refractive_index": 1.95,
+        "photoluminescence": "Weak in UV range",
+        "absorption_emission_spectra": "Absorbs strongly in UV, emits faint blue-violet fluorescence"
+      },
+      "chemical_properties": {
+        "oxidation_states": [-2, 0, 2, 4, 6],
+        "reactivity": {
+          "with_oxygen": "Forms SO₂, SO₃",
+          "with_water": "Insoluble, reacts with hydrogen in presence of catalysts",
+          "with_acids": "Reacts with strong oxidizing acids (e.g., HNO₃)"
+        },
+        "electronegativity": 2.58,
+        "ionization_energy": {
+          "first": 999.6
+        },
+        "common_compounds": ["S₈", "SO₂", "SO₃", "H₂S", "H₂SO₄"]
+      },
+      "physical_properties": {
+        "melting_point": 115.21,
+        "boiling_point": 444.6,
+        "thermal_conductivity": 0.205,
+        "specific_heat_capacity": 0.71,
+        "electrical_conductivity": "Insulator"
+      }
+    },
+    "Bromine": {
+      "symbol": "Br",
+      "atomic_number": 35,
+      "atomic_mass": 79.904,
+      "electron_configuration": "[Ar] 3d¹⁰ 4s² 4p⁵",
+      "appearance": "Reddish-brown liquid with a pungent odor",
+      "structural_properties": {
+        "crystal_structure": "Orthorhombic",
+        "lattice_parameters": {
+          "a": 6.67,
+          "b": 4.47,
+          "c": 8.72
+        },
+        "density": {
+          "liquid": 3.102,
+          "solid": 4.05
+        },
+        "atomic_packing_factor": "Varies by phase"
+      },
+      "mechanical_properties": {
+        "hardness": "Not applicable (liquid at room temperature)",
+        "tensile_strength": "Low",
+        "ductility_brittleness": "Brittle in solid form",
+        "elastic_modulus": "Not well-defined for liquid bromine"
+      },
+      "optical_properties": {
+        "color_transparency": "Deep reddish-brown liquid, transparent in thin layers",
+        "refractive_index": 1.001,
+        "photoluminescence": "Weak",
+        "absorption_emission_spectra": "Strong absorption in UV and blue light"
+      },
+      "chemical_properties": {
+        "oxidation_states": [-1, 1, 3, 5, 7],
+        "reactivity": {
+          "with_oxygen": "Forms bromine oxides (Br₂O, BrO₂, Br₂O₅)",
+          "with_water": "Partially soluble, forms hypobromous acid (HBrO) and hydrobromic acid (HBr)",
+          "with_acids": "Reacts with sulfuric acid to form Br₂ gas"
+        },
+        "electronegativity": 2.96,
+        "ionization_energy": {
+          "first": 1139.9,
+          "second": 2103
+        },
+        "common_compounds": ["HBr", "NaBr", "BrF₃", "BrCl"]
+      },
+      "physical_properties": {
+        "melting_point": -7.2,
+        "boiling_point": 58.8,
+        "thermal_conductivity": 0.12,
+        "specific_heat_capacity": 0.473,
+        "electrical_conductivity": "Poor"
+      }
+    },
+    "Copper": {
+      "symbol": "Cu",
+      "atomic_number": 29,
+      "atomic_mass": 63.546,
+      "appearance": "Reddish-orange",
+      "structural_properties": {
+        "crystal_structure": "Face-Centered Cubic (FCC)",
+        "lattice_parameter": 3.615,
+        "coordination_number": 12
+      },
+      "mechanical_properties": {
+        "youngs_modulus": [110, 128],
+        "shear_modulus": 48,
+        "bulk_modulus": 140,
+        "poisson_ratio": 0.34,
+        "tensile_strength": 210,
+        "hardness": {
+          "Mohs": 3
+        }
+      },
+      "optical_properties": {
+        "color": "Reddish-orange",
+        "reflectivity": 0.95,
+        "refractive_index": 0.64
+      },
+      "chemical_properties": {
+        "electronegativity": 1.9,
+        "oxidation_states": [1, 2, 3],
+        "corrosion_resistance": "Forms Cu₂O protective layer"
+      },
+      "physical_properties": {
+        "thermal_conductivity": 385,
+        "electrical_conductivity": 5.96e7,
+        "specific_heat_capacity": 0.385,
+        "thermal_expansion_coefficient": 16.5e-6
+      },
+      "advanced_characterization": {
+        "work_function": 4.7,
+        "debye_temperature": 343,
+        "electron_mobility": 50
+      }
+    }
+  }
+}
