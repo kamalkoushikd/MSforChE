@@ -12,14 +12,27 @@
             const cards = document.querySelectorAll('.property-card');
             const totalCards = cards.length;
             let currentIndex = 0;
+            const cardsContainer = document.querySelector('.cards-container'); // Make sure you have this container
         
             if (!totalCards) return;
         
-            // Ensure the first card is positioned correctly
-            gsap.set(cards[currentIndex], { 
-                autoAlpha: 1, 
+            // Set up the container for horizontal scrolling
+            gsap.set(cardsContainer, {
                 position: 'relative',
-                scale: 1 
+                width: '100%',
+                height: 'auto',
+                overflow: 'hidden'
+            });
+        
+            // Set initial positions for all cards
+            cards.forEach((card, index) => {
+                gsap.set(card, { 
+                    autoAlpha: index === 0 ? 1 : 0,
+                    position: 'absolute',
+                    top: 0,
+                    left: index === 0 ? '0%' : (index > currentIndex ? '100%' : '-100%'),
+                    width: '100%'
+                });
             });
         
             // Update indicators
@@ -29,29 +42,32 @@
                 });
             }
         
-            // Function to switch cards
+            // Function to switch cards with side-scrolling effect
             function goToCard(index) {
                 if (index < 0) index = totalCards - 1;
                 if (index >= totalCards) index = 0;
         
                 const currentCard = cards[currentIndex];
                 const nextCard = cards[index];
+                const direction = index > currentIndex || (currentIndex === totalCards - 1 && index === 0) ? 1 : -1;
         
-                // Animate out current card
-                gsap.to(currentCard, {
-                    autoAlpha: 0,
-                    scale: 0.8,
-                    duration: 0.5,
-                    ease: 'power2.inOut',
-                    onComplete: () => gsap.set(currentCard, { position: 'absolute' })
+                // Set the starting position of the next card
+                gsap.set(nextCard, {
+                    autoAlpha: 1,
+                    left: direction > 0 ? '100%' : '-100%'
                 });
         
-                // Animate in next card
-                gsap.set(nextCard, { position: 'relative', scale: 0.8 });
+                // Animate current card out
+                gsap.to(currentCard, {
+                    left: direction > 0 ? '-100%' : '100%',
+                    duration: 0.6,
+                    ease: 'power2.inOut'
+                });
+        
+                // Animate next card in
                 gsap.to(nextCard, {
-                    autoAlpha: 1,
-                    scale: 1,
-                    duration: 0.5,
+                    left: '0%',
+                    duration: 0.6,
                     ease: 'power2.inOut'
                 });
         
@@ -87,8 +103,12 @@
                 if (i === 0) dot.classList.add('active');
                 dot.dataset.index = i;
                 indicatorsContainer.appendChild(dot);
+                
+                // Add click event listener
+                dot.addEventListener('click', () => goToCard(i));
             }
         });
+        
         
     </script>
 {% endblock %}

@@ -64,7 +64,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-FIREBASE_KEY_FILE = os.path.join(BASE_DIR, 'firebase_key.json')
+FIREBASE_KEY_FILE = os.path.join(BASE_DIR, 'materialscienceweb-firebase-adminsdk-fbsvc-bcdc9ac0b7.json')
 
 cred = credentials.Certificate(FIREBASE_KEY_FILE)
 initialize_app(cred)
