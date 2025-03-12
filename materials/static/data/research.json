@@ -112,7 +112,11 @@
       "appearance": "Reddish-orange",
       "structural_properties": {
         "crystal_structure": "Face-Centered Cubic (FCC)",
-        "lattice_parameter": 3.615,
+        "lattice_parameter": {
+          "a": 3.61,
+          "b": 3.615,
+          "c": 3.615
+        },
         "coordination_number": 12
       },
       "mechanical_properties": {
