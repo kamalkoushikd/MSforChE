@@ -6,6 +6,7 @@
     --card-width: 600px; /* ✅ Ensure enough width */
     --card-height: 400px;
     --card-margin: 20px;
+    --card-gap: 40px;
 }
 
 .element-card {
@@ -57,7 +58,7 @@
 /* Property card */
 .property-card {
     flex: 0 0 var(--card-width);
-    width: var(--card-width); /* ✅ Explicit width */
+    width: var(--card-width);
     height: var(--card-height);
     background-color: var(--primary-color);
     box-shadow: 0 10px 20px var(--shadow-color);
@@ -66,10 +67,9 @@
     visibility: hidden;
     position: absolute;
     top: 0;
-    left: 50%; 
-    transform: translateX(-50%);
+    left: 0; /* Changed from 50% */
     transition: opacity 0.5s ease;
-    white-space: normal; /* ✅ Prevent forced line breaks */
+    white-space: normal;
     overflow: hidden;
 }
 
@@ -192,13 +192,6 @@
 .actinide {
     --background-color: #ff99cc;
     --text-color: #000;
-}
-
-/* ✅ Hover effect to reflect element color */
-.property-card:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transform: translateX(-50%) scale(1.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .element-container {
