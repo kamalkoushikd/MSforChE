@@ -30,12 +30,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'materials:home' %}">Home</a>
                     </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'materials:about' %}">About</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url 'materials:general' %}" id="generalDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Project
+                        </a>
+                        
+                        <ul class="dropdown-menu custom-dropdown" aria-labelledby="generalDropdown">
+                            <li><a class="dropdown-item" href="{% url 'materials:general'%}">All Elements</a></li>
+                            <hr>
+                            <li><a class="dropdown-item" href="{% url 'materials:element' 'sulfur'%}">Sulfur</a></li>
+                            <li><a class="dropdown-item" href="{% url 'materials:element' 'copper'%}">Copper</a></li>
+                            <li><a class="dropdown-item" href="{% url 'materials:element' 'bromine'%}">Bromine</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'materials:contact' %}">Contact</a>
+                        <a class="nav-link" href="{% url 'materials:about' %}">About</a>
                     </li>
                     {% if user.is_authenticated%}
                     <button class="btn btn-danger" onclick="window.location.href='{% url 'account_logout' %}'">Logout</button></button>

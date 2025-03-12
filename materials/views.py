@@ -51,6 +51,8 @@ def get_element_info(request, name):
     try:
         # Get the element object from the database
         element = get_object_or_404(Element, name=name.capitalize())
+        x, y = get_graph(name.lower())
+        graph_data = [{'x': x[i], 'y': y[i]} for i in range(len(x))]
 
         # Load the JSON file
         json_path = os.path.join(os.path.dirname(__file__), 'static/data/data.json')
@@ -74,6 +76,7 @@ def get_element_info(request, name):
             'element': element,
             "research": research["elements"][name.capitalize()],
             'industry': element_data,
+            'data': graph_data,
         })
     except Exception as e:
         print(f"Error: {e}")

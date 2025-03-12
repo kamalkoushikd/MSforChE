@@ -4,11 +4,13 @@ from pymatgen.analysis.diffraction.xrd import XRDCalculator
 from pymatgen.core import Structure
 import matplotlib.pyplot as plt
 import numpy as np
-
+import os
+from django.conf import settings
 def get_graph(name):
+    model_path = os.path.join(settings.BASE_DIR, "materials","static", "models", f"{name}.cif")  
     try:
         # Load structure
-        structure = Structure.from_file(f"static/models/{name}.cif")
+        structure = Structure.from_file(model_path)
         
         # Get standard pattern first
         calculator = XRDCalculator()
@@ -34,10 +36,10 @@ def get_graph(name):
         plt.ylabel("Intensity (a.u.)")
         plt.title(f"XRD Pattern for {name.capitalize()}")
         plt.grid(True)
-        plt.savefig(f"static/images/{name}.png", dpi=300)
+        # plt.savefig(f"static/images/{name}.png", dpi=300)
         
         print("Alternative XRD pattern successfully generated!")
-        
+        return x_fine, y_fine
     except Exception as e:
         print(f"Alternative method also failed: {str(e)}")
 
