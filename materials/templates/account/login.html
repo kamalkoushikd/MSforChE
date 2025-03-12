@@ -1,14 +1,11 @@
 {% extends "layout.html" %}
 {% load socialaccount %}
-{%load static%}
-{%block title%}
-Login Page
-{% endblock %}
-
 {% block content %}
-    <h1>Use Firefox with Enhanced tracking Protection off (🛡️ symbol to the left of your url bar. Click on it and switch it off)</h1>
-    <div class="container mt-4" style="display:flex;justify-content:center;">
-        <h2>Login</h2><br>
-        <a href="{% provider_login_url 'google' %}" class="btn btn-danger">Login with Google</a>
-    </div>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%;">
+    <button class="btn btn-danger button-container" style="background-color: #ffffff ;border: 2px solid #dadce0; border-radius: 12px; color: #3c4043; display: flex; align-items: center; padding: 30px 50px; font-family: 'Roboto', sans-serif; font-size: 32px; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.15); transition: all 0.2s;">
+      <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" style="height: 48px; margin-right: 30px;">
+      <a href="{% provider_login_url 'google' %}" style="text-decoration: none; color: inherit;">Sign in with Google</a>
+    </button>
+  </div>
+  
 {% endblock %}
