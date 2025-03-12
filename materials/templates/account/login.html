@@ -1,97 +1,14 @@
 {% extends "layout.html" %}
+{% load socialaccount %}
 {%load static%}
 {%block title%}
 Login Page
-{% endblock %}
-{% block head %}
-    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js"></script>
 {% endblock %}
 
 {% block content %}
     <h1>Use Firefox with Enhanced tracking Protection off (🛡️ symbol to the left of your url bar. Click on it and switch it off)</h1>
     <div class="container mt-4" style="display:flex;justify-content:center;">
         <h2>Login</h2><br>
-        <button onclick="googleLogin()" class="btn btn-danger">Google</button>
+        <a href="{% provider_login_url 'google' %}" class="btn btn-danger">Login with Google</a>
     </div>
-
-    
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-        import { getAuth, GoogleAuthProvider, signInWithPopup, setPersistence, browserLocalPersistence} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
-
-        // Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyDXhXit-SdfwhLm6r4mVw6nPyRmAvrwIYA",
-          authDomain: "materialscienceweb.firebaseapp.com",
-          projectId: "materialscienceweb",
-          storageBucket: "materialscienceweb.firebasestorage.app",
-          messagingSenderId: "896370210327",
-          appId: "1:896370210327:web:01ac8133a7912c5f4b4e52",
-          measurementId: "G-T7LCC9P3TF"
-        };
-      
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        // Set persistence to LOCAL
-        setPersistence(auth, browserLocalPersistence)
-            .then(() => {
-                console.log("Persistence set to local");
-            })
-            .catch((error) => {
-                console.error("Error setting persistence:", error);
-            });
-
-        async function googleLogin() {
-            const provider = new GoogleAuthProvider();
-            addCrossOriginOpenerPolicy();
-
-            try {
-                const result = await signInWithPopup(auth, provider)
-                const user = result.user;
-                const token = await user.getIdToken();
-                console.log("User signed in:", user);
-                console.log("ID Token:", token);
-
-                const response = await fetch('/firebase-login/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify({})
-                });
-
-                const data = await response.json();
-
-                if (data.status === 'success') {
-                    window.location.replace('/'); // ✅ Clean redirect
-                } else {
-                    console.error("Authentication failed:", data.message);
-                    alert(data.message);
-                }
-            } catch (error) {
-
-              if (error.code === 'auth/popup-blocked') {
-                  alert('Your browser is blocking pop-ups. Please allow pop-ups for this website or disable Enhanced Tracking Protection.');
-                  // Optionally, add more specific instructions or a link to browser settings here.
-              } else {
-                  console.error("Error during sign-in:", error);
-                  alert('Authentication failed. Please try again later.');
-              }
-          }
-        }
-        function addCrossOriginOpenerPolicy() {
-          const meta = document.createElement('meta');
-          meta.httpEquiv = 'Cross-Origin-Opener-Policy';
-          meta.content = 'same-origin-allow-popups';
-          document.head.appendChild(meta);
-      }
-            
-
-        window.googleLogin = googleLogin;
-      </script>
 {% endblock %}

@@ -17,11 +17,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'firebase_auth.authentication.FirebaseAuthentication',
-    ),
-}
 
 # Enforce HTTPS
 # Protect session & CSRF cookies
@@ -32,7 +27,7 @@ REST_FRAMEWORK = {
 SECRET_KEY = 'django-insecure-$5_gsnuru@%o#j05*zkeupi6bi2^%l@rieopyp*cbsxe-+zxga'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -60,25 +55,36 @@ SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    # 'materials.firebase_auth.FirebaseBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '987518696355-cstd927r9obqs36koq1fquph4sak2nk8.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        },
+        'SCOPE': ['profile', 'email'],
+        'AUTH_PARAMS': {'access_type': 'online'},
+        'OAUTH_PKCE_ENABLED': True,  # Enables PKCE for security
+    }
+}
 
-FIREBASE_KEY_FILE = os.path.join(BASE_DIR, 'materialscienceweb-firebase-adminsdk-fbsvc-bcdc9ac0b7.json')
 
-cred = credentials.Certificate(FIREBASE_KEY_FILE)
-initialize_app(cred)
+LOGIN_REDIRECT_URL = '/'  # Redirect after login
+LOGOUT_REDIRECT_URL = '/'  # Redirect after logout
 
 
-LOGIN_URL = '/firebase-login'
+LOGIN_URL = '/accounts/login/'  
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/firebase-login'  # URL for your login page
+LOGOUT_REDIRECT_URL = '/accounts/login'  # URL for your login page
 
 # URLs that do not require authentication (e.g., static files or public pages)
 LOGIN_EXEMPT_URLS = [
     r'^static/',  # Allow access to static files
     r'^public/',
-    r'^firebase-login',  # Example: add public pages here
+    r'^accounts/login/',  # Example: add public pages here
 ]
 
 # Add your social account credentials
@@ -103,7 +109,7 @@ ROOT_URLCONF = 'MSforChE.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -178,18 +184,14 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Allauth settings
+ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "none"
-ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_ADAPTER = "allauth.account.adapter.DefaultAccountAdapter"
+
+# Restrict authentication to only Google
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_SIGNUP_PASSWORD_VERIFICATION = False
-ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
-ACCOUNT_LOGOUT_ON_GET = True
-ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_UNIQUE_EMAIL = True
-
-CORS_ALLOWED_ORIGINS = [
-    "https://matscienceweb.firebaseapp.com",  #  The EXACT origin!
-]
-
-CORS_ALLOW_CREDENTIALS = True
+ACCOUNT_SIGNUP_REDIRECT_URL = "/accounts/google/login/"
+ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+ACCOUNT_SIGNUP = False  # Prevents users from signing up with email manually

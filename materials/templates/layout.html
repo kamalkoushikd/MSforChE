@@ -44,7 +44,7 @@
     </nav>
 
     {% if user.is_authenticated %}
-        <p hidden>Welcome, {{ user.username }}! <a href="{% url 'account_logout' %}">Logout</a></p>
+        <p hidden>Welcome, {{ user.first_name }}! <a href="{% url 'account_logout' %}">Logout</a></p>
     {% else %}
         <p hidden><a href="{% url 'account_login' %}">Login</a></p>
     {% endif %}

@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.views.static import serve
 from django.urls import include, path, re_path
+# from allauth.socialaccount.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    # path('accounts/', include('allauth.socialaccount.urls')),
+    # path('accounts/google/login/', LoginView.as_view(template_name='allauth/socialaccount/login.html'), name='google_login'),
     path('', include('materials.urls')),
 ]

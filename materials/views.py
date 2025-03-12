@@ -31,7 +31,7 @@ def home(request):
 @login_required
 def index(request):
     # Load team data from JSON file
-    return render(request, 'home.html', {'team': team_data})
+    return render(request, 'home.html', {'team': team_data, 'user': request.user})
 @login_required
 def about(request):
     return render(request, 'about.html')
@@ -57,38 +57,3 @@ def get_element_info(request, name):
             })
    except KeyError:
        return render(request, 'lazy.html')
-
-
-@csrf_exempt
-def firebase_login(request):
-    if request.method == 'POST':
-        auth_header = request.headers.get('Authorization')
-        if not auth_header or not auth_header.startswith('Bearer '):
-            return JsonResponse({'status': 'error', 'message': 'Authorization header missing or invalid'}, status=401)
-
-        id_token = auth_header.split('Bearer ')[1]
-
-        try:
-            decoded_token = auth.verify_id_token(id_token)
-            print(decoded_token)
-            email = decoded_token.get('email')
-            uid = decoded_token['uid']
-            allowed_domain = "iith.ac.in"  # Replace with your desired domain
-            if not email.endswith(f"@{allowed_domain}"):
-                return JsonResponse({'status': 'error', 'message': 'Unauthorized email domain'}, status=403)
-            
-            
-
-            # Create or retrieve a Django user based on UID or email
-            from django.contrib.auth.models import User
-            user, created = User.objects.get_or_create(username=uid, defaults={'email': email})
-
-            # Optionally log in the user (if using Django's session-based authentication)
-            from django.contrib.auth import login
-            login(request, user)
-            return JsonResponse({'status': 'success', 'user_id': user.id})
-        except Exception as e:
-            return JsonResponse({'status': 'error', 'message': str(e)}, status=401)
-
-    else:
-        return render(request, 'account/login.html')
