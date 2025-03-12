@@ -149,82 +149,72 @@
     </div>
 </div>
 
-<div class="full-width-section mt-5">
-    <h2 class="section-title">Element Properties</h2>
-    <div class="carousel-container">
-        <div class="scrolling-wrapper">
-            <!-- General Properties Card -->
-            <div class="property-card card">
-                <div class="card-body">
-                    <h2>🔬 General Properties</h2>
-                    <p><strong>Atomic Number</strong>: {{ research.atomic_number }}</h5>
-                    <p><strong> Atomic Mass:</strong> {{ research.atomic_mass }} u</p>
-                    <p><strong>Electron Configuration:</strong> {{ research.electron_configuration }}</p>
-                    <p><strong>Appearance:</strong> {{ research.appearance }}</p>
-                </div>
-            </div>
+<h2 style='text-align:center; padding-top: 50px;'>Appearance 👁️</h2>
 
-            <div class="property-card card">
-                <div class="card-body">
-                    <h2>🏗 Structural Properties</h2>
-                    <p><strong>Crystal Structure:</strong> {{ research.structural_properties.crystal_structure }}</p>
-                    <p><strong>Lattice Parameters:</strong></p>
-                    <ul>
-                        <li>a: {{ research.structural_properties.lattice_parameters.a }}</li>
-                        <li>b: {{ research.structural_properties.lattice_parameters.b }}</li>
-                        <li>c: {{ research.structural_properties.lattice_parameters.c }}</li>
-                    </ul>
-                    <p><strong>Density:</strong> {{ research.structural_properties.density }} g/cm³</p>
-                </div>
-            </div>
-
-            <div class="property-card card">
-                <div class="card-body">
-                    <h2>🛠 Mechanical Properties</h2>
-                    <p><strong>Mohs Hardness:</strong> {{ research.mechanical_properties.hardness.Mohs }}</p>
-                    <p><strong>Tensile Strength:</strong> {{ research.mechanical_properties.tensile_strength }}</p>
-                    <p><strong>Elastic Modulus:</strong> {{ research.mechanical_properties.elastic_modulus }}</p>
-                </div>
-            </div>
-            
-            <div class="property-card card">
-                <div class="card-body">
-                    <h2>💎 Optical Properties</h2>
-                    <p><strong>Refractive Index:</strong> {{ research.optical_properties.refractive_index }}</p>
-                    <p><strong>Color & Transparency:</strong> {{ research.optical_properties.color_transparency }}</p>
-                </div>
-            </div>
-
-            <div class="property-card card">
-                <div class="card-body">
-                    <h2>🔥 Chemical Properties</h2>
-                    <p><strong>Common Oxidation States:</strong> {{ research.chemical_properties.oxidation_states }}</p>
-                    <p><strong>Electronegativity:</strong> {{ research.chemical_properties.electronegativity }}</p>
-                </div>
-            </div>
-
-            <div class="property-card card">
-                <div class="card-body">
-                    <h2>🌡 Physical Properties</h2>
-                    <p><strong>Melting Point:</strong> {{ research.physical_properties.melting_point }}°C</p>
-                    <p><strong>Boiling Point:</strong> {{ research.physical_properties.boiling_point }}°C</p>
-                    <p><strong>Thermal Conductivity:</strong> {{ research.physical_properties.thermal_conductivity }}</p>
-                    <p><strong>Specific Heat Capacity:</strong> {{ research.physical_properties.specific_heat_capacity }}</p>
-                    <p><strong>Electrical Conductivity:</strong> {{ research.physical_properties.electrical_conductivity }}</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="carousel-nav">
-            <button class="prev-btn">←</button>
-            <div class="indicators"></div>
-            <button class="next-btn">→</button>
-        </div>
+<div class="container d-flex justify-content-center mt-4">
+    <div class="card shadow-sm">
+        <img src="{% static 'images/' %}{{ element.name|lower }}.jpg"
+             alt="{{ element.name }}" 
+             class="img-fluid rounded" 
+             style="max-width: 100%; height: 400px;">
     </div>
 </div>
 
-
-<div class="container mt-4">
+<div class="full-width-section mt-5">
+    <h2 class="section-title">Element Properties</h2>
+    {% with template_path="includes/"|add:element.name|lower|add:".html" %}
+        {% include template_path %}
+    {% endwith %}
     
 </div>
+<hr>
+<h1>Industrial Applications</h1>
+
+<div class="industrial-applications">
+    <h2>Industrial Applications</h2>
+    {% for category in industry.industrial_data.applications %}
+      <h3>{{ category.category }}</h3>
+      <ul>
+        {% for app in category.applications %}
+          <li>
+            <strong>{{ app.name }}</strong>
+            {% if app.description %}: {{ app.description }}{% endif %}
+            {% if app.details %}
+              <br><em>Details:</em> {{ app.details|join:", " }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </div>
+  {% if industry.industrial_data.impact.global_production or industry.industrial_data.impact.future_demand or industry.industrial_data.impact.largest_consumers%}
+  <div class="industrial-impact">
+    <h2>Industrial Impact</h2>
+    {% if industry.industrial_data.impact.global_production %}
+      <p><strong>Global Production:</strong> {{ industry.industrial_data.impact.global_production }}</p>
+    {% endif %}
+    {% if industry.industrial_data.impact.largest_consumers %}
+      <p><strong>Largest Consumers:</strong></p>
+      <ul>
+        {% for consumer in industry.industrial_data.impact.largest_consumers %}
+          <li>{{ consumer }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if industry.industrial_data.impact.future_demand %}
+      <p><strong>Future Demand:</strong> {{ industry.industrial_data.impact.future_demand }}</p>
+    {% endif %}
+  </div>
+  {%endif%}
+  <hr>
+  <h1 style="text-align:center; margin-top: 40px;"> X-Ray Diffraction Pattern (Simulated)</h1>
+  <div class="container d-flex justify-content-center mt-4">
+    <div class="card shadow-sm">
+        <img src="{% static 'images/' %}{{ element.name|lower }}.png" 
+             alt="{{ element.name }}" 
+             class="img-fluid rounded" 
+             style="max-width: 100%; height: auto; object-fit: contain;">
+    </div>
+  </div>
+  
 {% endblock %}

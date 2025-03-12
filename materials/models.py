@@ -19,8 +19,6 @@ class Element(models.Model):
     density = models.FloatField(null=True, blank=True)
     group_block = models.CharField(max_length=50, null=True, blank=True)
     year_discovered = models.CharField(max_length=10,   null=True, blank=True)
-    
-    # New fields for periodic table positioning
     group_number = models.IntegerField(null=True, blank=True)
     period_number = models.IntegerField(null=True, blank=True)
     

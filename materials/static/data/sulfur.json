@@ -1,0 +1,172 @@
+{
+    "industrialApplicationsOfSulfur": [
+      {
+        "category": "Chemical Industry",
+        "applications": [
+          {
+            "name": "Sulfuric Acid (H₂SO₄) Production",
+            "uses": [
+              "Fertilizer production (e.g., superphosphate and ammonium sulfate)",
+              "Manufacturing of detergents, dyes, and explosives",
+              "Petroleum refining to remove impurities"
+            ]
+          },
+          {
+            "name": "Sulfur Dioxide (SO₂) & Sulfites",
+            "uses": [
+              "Food and beverage preservation (e.g., wine, dried fruits)",
+              "Paper bleaching in pulp & paper industry"
+            ]
+          },
+          {
+            "name": "Sulfide Compounds",
+            "uses": [
+              "Vulcanization of rubber",
+              "Pharmaceuticals (e.g., sulfa drugs for bacterial infections)"
+            ]
+          }
+        ]
+      },
+      {
+        "category": "Energy & Batteries",
+        "applications": [
+          {
+            "name": "Lithium-Sulfur (Li-S) Batteries",
+            "uses": [
+              "Electric vehicles (EVs)",
+              "Aerospace applications"
+            ]
+          },
+          {
+            "name": "Fuel Refining",
+            "uses": [
+              "Desulfurization of fossil fuels",
+              "Reduction of SO₂ emissions"
+            ]
+          },
+          {
+            "name": "Photovoltaics & Semiconductors",
+            "uses": [
+              "Cadmium sulfide (CdS) solar cells",
+              "Dopant in semiconductor devices"
+            ]
+          }
+        ]
+      },
+      {
+        "category": "Construction & Polymers",
+        "applications": [
+          {
+            "name": "Sulfur Concrete",
+            "uses": [
+              "Industrial flooring",
+              "Sewage systems",
+              "Marine applications"
+            ]
+          },
+          {
+            "name": "Vulcanized Rubber",
+            "uses": [
+              "Automobile tires",
+              "Conveyor belts",
+              "Shoe soles"
+            ]
+          },
+          {
+            "name": "Sulfur-Based Plastics",
+            "uses": [
+              "Thermoplastics",
+              "Specialty polymers for advanced applications"
+            ]
+          }
+        ]
+      },
+      {
+        "category": "Agriculture & Medicine",
+        "applications": [
+          {
+            "name": "Fertilizers & Soil Conditioning",
+            "uses": [
+              "Plant nutrition",
+              "Sulfate fertilizers (e.g., ammonium sulfate)"
+            ]
+          },
+          {
+            "name": "Pesticides & Fungicides",
+            "uses": [
+              "Natural fungicide for grape vineyards",
+              "Insect repellents and acaricides"
+            ]
+          },
+          {
+            "name": "Medical & Pharmaceutical Uses",
+            "uses": [
+              "Sulfur-based antibiotics (sulfa drugs)",
+              "Dermatological treatments (acne, eczema, dandruff)"
+            ]
+          }
+        ]
+      },
+      {
+        "category": "Metallurgy & Corrosion Resistance",
+        "applications": [
+          {
+            "name": "Steel Production",
+            "uses": [
+              "Impurity control in steel",
+              "Improving machinability in free-cutting steels"
+            ]
+          },
+          {
+            "name": "Corrosion Resistance",
+            "uses": [
+              "Sulfide coatings for stainless steel",
+              "Lead sulfide (PbS) coatings for radiation shielding"
+            ]
+          },
+          {
+            "name": "Metal Extraction",
+            "uses": [
+              "Mineral flotation for separating valuable metals",
+              "Gold and copper leaching processes"
+            ]
+          }
+        ]
+      },
+      {
+        "category": "Environmental & Emerging Applications",
+        "applications": [
+          {
+            "name": "Sulfur-Based Catalysts",
+            "uses": [
+              "Petrochemical cracking and polymerization reactions",
+              "Sulfur-doped carbon materials for supercapacitors and fuel cells"
+            ]
+          },
+          {
+            "name": "Desulfurization Technologies",
+            "uses": [
+              "Flue gas desulfurization in power plants",
+              "Reduction of acid rain"
+            ]
+          },
+          {
+            "name": "Sulfur Nanomaterials",
+            "uses": [
+              "Drug delivery and coatings",
+              "Advanced photocatalysts for environmental remediation"
+            ]
+          }
+        ]
+      }
+    ],
+    "industrialImpact": {
+      "globalProduction": "Exceeds 70 million metric tons per year",
+      "largestConsumers": [
+        "Fertilizer industry",
+        "Chemical industry",
+        "Petroleum industry"
+      ],
+      "futureDemand": "Expected to increase due to Li-S batteries and high-performance materials"
+    }
+  }

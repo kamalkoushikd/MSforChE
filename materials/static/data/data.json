@@ -1,0 +1,271 @@
+{
+    "elements": [
+      {
+        "element": "Sulfur",
+        "industrial_data": {
+          "applications": [
+            {
+              "category": "⚗️ Chemical Industry",
+              "applications": [
+                {
+                  "name": "Sulfuric Acid (H₂SO₄) Production",
+                  "description": "Used in fertilizer production, detergents, dyes, explosives, and petroleum refining.",
+                  "details": [
+                    "Fertilizer production (e.g., superphosphate and ammonium sulfate)",
+                    "Manufacturing of detergents, dyes, and explosives",
+                    "Petroleum refining to remove impurities"
+                  ]
+                },
+                {
+                  "name": "Sulfur Dioxide (SO₂) & Sulfites",
+                  "description": "Used for food preservation and paper bleaching.",
+                  "details": [
+                    "Food and beverage preservation (e.g., wine, dried fruits)",
+                    "Paper bleaching in pulp & paper industry"
+                  ]
+                }
+              ]
+            },
+            {
+              "category": "🔋 Energy & Batteries",
+              "applications": [
+                {
+                  "name": "Lithium-Sulfur (Li-S) Batteries",
+                  "description": "Used in electric vehicles and aerospace applications.",
+                  "details": [
+                    "Electric vehicles (EVs)",
+                    "Aerospace applications"
+                  ]
+                },
+                {
+                  "name": "Fuel Refining",
+                  "description": "Used in desulfurization of fossil fuels and reduction of SO₂ emissions.",
+                  "details": [
+                    "Desulfurization of fossil fuels",
+                    "Reduction of SO₂ emissions"
+                  ]
+                }
+              ]
+            },
+            {
+              "category": "🏗️ Construction & Polymers",
+              "applications": [
+                {
+                  "name": "Sulfur Concrete",
+                  "description": "Used in industrial flooring, sewage systems, and marine applications.",
+                  "details": [
+                    "Industrial flooring",
+                    "Sewage systems",
+                    "Marine applications"
+                  ]
+                }
+              ]
+            },
+            {
+              "category": "🌾 Agriculture & Medicine",
+              "applications": [
+                {
+                  "name": "Fertilizers & Soil Conditioning",
+                  "description": "Provides plant nutrition and sulfate fertilizers.",
+                  "details": [
+                    "Plant nutrition",
+                    "Sulfate fertilizers (e.g., ammonium sulfate)"
+                  ]
+                }
+              ]
+            },
+            {
+              "category": "⛏️ Metallurgy & Corrosion Resistance",
+              "applications": [
+                {
+                  "name": "Steel Production",
+                  "description": "Used for impurity control and improved machinability in steel.",
+                  "details": [
+                    "Impurity control in steel",
+                    "Improving machinability in free-cutting steels"
+                  ]
+                }
+              ]
+            },
+            {
+              "category": "♻️ Environmental & Emerging Applications",
+              "applications": [
+                {
+                  "name": "Sulfur-Based Catalysts",
+                  "description": "Used in petrochemical cracking and polymerization reactions.",
+                  "details": [
+                    "Petrochemical cracking and polymerization reactions",
+                    "Sulfur-doped carbon materials for supercapacitors and fuel cells"
+                  ]
+                }
+              ]
+            }
+          ],
+          "impact": {
+            "global_production": "Exceeds 70 million metric tons per year",
+            "largest_consumers": [
+              "Fertilizer industry",
+              "Chemical industry",
+              "Petroleum industry"
+            ],
+            "future_demand": "Expected to increase due to Li-S batteries and high-performance materials"
+          }
+        }
+      },
+      {
+        "element": "Copper",
+        "industrial_data": {
+          "applications": [
+            {
+              "category": "⛏️ Metallurgy & Mining",
+              "applications": [
+                {
+                  "name": "Copper Leaching and Extraction",
+                  "description": "Bromine leaching is used for extracting copper from ores.",
+                  "details": [
+                    "Efficient extraction for low-grade ores",
+                    "Cupric bromide (CuBr₂) acts as an oxidizing agent"
+                  ]
+                }
+              ]
+            },
+            {
+              "category": "🏗️ Construction & Industrial Use",
+              "applications": [
+                {
+                  "name": "Corrosion Inhibition",
+                  "description": "Bromine compounds protect copper pipes and equipment from oxidation.",
+                  "details": [
+                    "Tetrabromobisphenol A (TBBPA) used in protective coatings"
+                  ]
+                }
+              ]
+            },
+            {
+              "category": "🧪 Chemical and Electronics Industry",
+              "applications": [
+                {
+                  "name": "Copper Bromide Usage",
+                  "description": "Used in dye production, laser technology, and photography.",
+                  "details": [
+                    "Dye and pigment production",
+                    "Laser technology in copper bromide lasers",
+                    "Component in film-developing solutions"
+                  ]
+                }
+              ]
+            },
+            {
+              "category": "🔋 Energy Storage",
+              "applications": [
+                {
+                  "name": "Copper-Bromine Batteries",
+                  "description": "Under research for large-scale energy storage.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "category": "🧪 Chemical Field",
+              "applications": [
+                {
+                  "name": "Bromine in Copper Applications",
+                  "description": "Used in catalysis, bromination, polymer chemistry, and surface treatments.",
+                  "details": [
+                    "Catalysis with CuBr and CuBr₂",
+                    "Bromination for pharmaceuticals and dyes",
+                    "ATRP for high-performance polymers",
+                    "Oxidizing agent for converting alcohols",
+                    "Etching for PCB manufacturing"
+                  ]
+                }
+              ]
+            }
+          ],
+          "impact": {
+            "global_production": "",
+            "largest_consumers": [],
+            "future_demand": ""
+          }
+        }
+      },
+      {
+        "element": "Bromine",
+        "industrial_data": {
+          "applications": [
+            {
+              "category": "⚗️ Chemical Industry",
+              "applications": [
+                {
+                  "name": "Flame Retardants",
+                  "description": "Used in plastics, textiles, and electronics to reduce fire hazards.",
+                  "details": []
+                },
+                {
+                  "name": "Organic Synthesis",
+                  "description": "Used in the production of pharmaceuticals, agrochemicals, and dyes.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "category": "⚡ Energy Sector",
+              "applications": [
+                {
+                  "name": "Energy Storage",
+                  "description": "Bromine-based flow batteries for large-scale energy storage.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "category": "🏗️ Construction",
+              "applications": [
+                {
+                  "name": "Flame Retardant Materials",
+                  "description": "Enhances fire resistance in insulation and cables.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "category": "🌱 Agriculture and Medicine",
+              "applications": [
+                {
+                  "name": "Pesticides and Fumigants",
+                  "description": "Previously used for soil fumigation (now largely phased out).",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "category": "⛏️ Metallurgy",
+              "applications": [
+                {
+                  "name": "Gold Extraction",
+                  "description": "Bromine leaching serves as an alternative in gold recovery.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "category": "🎨 Other Applications",
+              "applications": [
+                {
+                  "name": "Photography",
+                  "description": "Silver bromide is key in traditional photographic films.",
+                  "details": []
+                }
+              ]
+            }
+          ],
+          "impact": {
+            "global_production": "",
+            "largest_consumers": [],
+            "future_demand": ""
+          }
+        }
+      }
+    ]
+  }
+  

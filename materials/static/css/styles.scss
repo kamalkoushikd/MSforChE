@@ -10,6 +10,15 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    scrollbar-width: none; 
+    
+}
+
+
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    display: none;
 }
 
 h1 {

@@ -1,0 +1,75 @@
+<div class="carousel-container">
+    <div class="scrolling-wrapper">
+        <!-- General Properties Card -->
+        <div class="property-card card">
+            <div class="card-body">
+                <h2>🔬 General Properties</h2>
+                <p><strong>Atomic Number:</strong>: {{ research.atomic_number }}</h5>
+                <p><strong> Atomic Mass:</strong> {{ research.atomic_mass }} u</p>
+                <p><strong>Electron Configuration:</strong> {{ research.electron_configuration }}</p>
+                <p><strong>Appearance:</strong> {{ research.appearance }}</p>
+            </div>
+        </div>
+
+        <div class="property-card card">
+            <div class="card-body">
+                <h2>🏗 Structural Properties</h2>
+                <p><strong>Crystal Structure:</strong> {{ research.structural_properties.crystal_structure }}</p>
+                <p><strong>Lattice Parameters:</strong></p>
+                <ul>
+                    <li>a: {{ research.structural_properties.lattice_parameters.a }}</li>
+                    <li>b: {{ research.structural_properties.lattice_parameters.b }}</li>
+                    <li>c: {{ research.structural_properties.lattice_parameters.c }}</li>
+                </ul>
+                <p><strong>Density:</strong> {{ research.structural_properties.density }} g/cm³</p>
+                <p><strong>Atomic Packing Factor</strong> 0.37</p>
+            </div>
+        </div>
+
+        <div class="property-card card">
+            <div class="card-body">
+                <h2>🛠 Mechanical Properties</h2>
+                <p><strong>Mohs Hardness:</strong> {{ research.mechanical_properties.hardness.Mohs }}</p>
+                <p><strong>Tensile Strength:</strong> Brittle, so negligible tensile strength</p>
+                <p><strong>Elastic Modulus:</strong> {{ research.mechanical_properties.elastic_modulus }}</p>
+            </div>
+        </div>
+        
+        <div class="property-card card">
+            <div class="card-body">
+                <h2>💎 Optical Properties</h2>
+                <p><strong>Refractive Index:</strong> {{ research.optical_properties.refractive_index }}</p>
+                <p><strong>Color & Transparency:</strong> {{ research.optical_properties.color_transparency }}</p>
+                <p><strong>Photoluminescence:</strong>  Weak photoluminescence in UV range</p>
+                <p><strong>Absorption and Emission Spectra:</strong> Absorbs strongly in UV, emits faint blue-violet fluorescence</p>
+            </div>
+        </div>
+
+        <div class="property-card card">
+            <div class="card-body">
+                <h2>🔥 Chemical Properties</h2>
+                <p><strong>Oxidation States:</strong> {{ research.chemical_properties.oxidation_states }}</p>
+                <p><strong>Electronegativity:</strong> {{ research.chemical_properties.electronegativity }}</p>
+                <p><strong>ionization Energy:</strong> 999.6 KJ/mol</p>
+                <p><strong>Most Common Compounds:</strong>S₈, SO₂, SO₃, H₂S, H₂SO₄</p>
+            </div>
+        </div>
+
+        <div class="property-card card">
+            <div class="card-body">
+                <h2>🌡 Physical Properties</h2>
+                <p><strong>Melting Point:</strong> {{ research.physical_properties.melting_point }}°C</p>
+                <p><strong>Boiling Point:</strong> {{ research.physical_properties.boiling_point }}°C</p>
+                <p><strong>Thermal Conductivity:</strong> {{ research.physical_properties.thermal_conductivity }}</p>
+                <p><strong>Specific Heat Capacity:</strong> {{ research.physical_properties.specific_heat_capacity }}</p>
+                <p><strong>Electrical Conductivity:</strong> {{ research.physical_properties.electrical_conductivity }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="carousel-nav">
+        <button class="prev-btn">←</button>
+        <div class="indicators"></div>
+        <button class="next-btn">→</button>
+    </div>
+</div>

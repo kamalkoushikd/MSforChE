@@ -12,7 +12,7 @@ import plotly.express as px
 from plotly.offline import plot
 import pandas as pd
 from firebase_admin import auth
-from .utils import verify_firebase_token
+from .utils import get_graph
 from .models import get_or_create_user
 from django.contrib.auth.decorators import login_required
 
@@ -48,12 +48,34 @@ def general(request):
     })
 @login_required
 def get_element_info(request, name):
-   try:
-        element = Element.objects.get(name=name.capitalize())
+    try:
+        # Get the element object from the database
+        element = get_object_or_404(Element, name=name.capitalize())
 
-        print(element.group_block)
+        # Load the JSON file
+        json_path = os.path.join(os.path.dirname(__file__), 'static/data/data.json')
+        with open(json_path, 'r') as file:
+            data = json.load(file)
+        
+        # Convert element name to lowercase for consistent matching
+        element_name = element.name.capitalize()
+
+        # Find the matching element data in the JSON file
+        element_data = next(
+            (item for item in data.get('elements', []) if item.get('element') == element_name),
+            None
+        )
+
+        if element_data is None:
+            return render(request, 'lazy.html')
+
+        # Pass only the matched element's data to the template
         return render(request, 'element.html', {
-            'element': element, "research": research["elements"][name.capitalize()],
-            })
-   except KeyError:
-       return render(request, 'lazy.html')
+            'element': element,
+            "research": research["elements"][name.capitalize()],
+            'industry': element_data,
+        })
+    except Exception as e:
+        print(f"Error: {e}")
+        return render(request, 'lazy.html')
+

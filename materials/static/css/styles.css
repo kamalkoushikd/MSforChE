@@ -9,7 +9,12 @@ body {
   padding: 0;
   min-height: 100vh;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  scrollbar-width: none; }
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none; }
 
 h1 {
   font-family: 'Fira Code', monospace;
