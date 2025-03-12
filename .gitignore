@@ -1,6 +1,8 @@
 # Ignore node_modules directory
 node_modules/
 
+db.sqlite3
+
 # Ignore log files
 *.log
 
