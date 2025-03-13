@@ -35,7 +35,7 @@ function createLineChart({
     const svg = container.append("svg")
         .attr("width", width)
         .attr("height", height)
-        .style("background-color", "#fff")
+        .style("background-color", "#181A1B")
         .style("color", labelColor)
         .style("border-radius", "15px");
 
@@ -99,13 +99,13 @@ function createLineChart({
         .attr("transform", `translate(0,${height - margin.bottom})`)
         .call(d3.axisBottom(x))
         .selectAll("text")
-        .style("fill", "black");
+        .style("fill", "white");
 
     svg.append("g")
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y))
         .selectAll("text")
-        .style("fill", "black");
+        .style("fill", "white");
 
     // Title
     
@@ -116,7 +116,7 @@ function createLineChart({
         .attr("y", height - 20)
         .attr("text-anchor", "middle")
         .attr("font-size", "14px")
-        .style("fill", "black")
+        .style("fill", "white")
         .text("2θ (degrees)");
 
     svg.append("text")
@@ -125,7 +125,7 @@ function createLineChart({
         .attr("y", 20)
         .attr("text-anchor", "middle")
         .attr("font-size", "14px")
-        .style("fill", "black")
+        .style("fill", "white")
         .text("Intensity (a.u.)");
 
     // Interactive circle for tooltip display
@@ -214,13 +214,13 @@ function createLineChart({
         .attr("width", 12)
         .attr("height", 12)
         .style("fill", lineColor)
-        .style("stroke", "black");
+        .style("stroke", "white");
 
     legend.append("text")
         .attr("x", 20)
         .attr("y", 10)
         .attr("font-size", 12)
-        .style("fill", "black")
+        .style("fill", "white")
         .text("X-Ray Diffraction");
 
     // Alternatively, if you need to raise an existing legend group:
@@ -233,7 +233,7 @@ function createLineChart({
         .attr("text-anchor", "middle")
         .attr("font-size", "18px")
         .attr("font-weight", "bold")
-        .style("fill", "black")
+        .style("fill", "white")
         .text(title);
     
 }
