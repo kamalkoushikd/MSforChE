@@ -4,7 +4,7 @@ function createLineChart({
     width = 600, 
     height = 400, 
     title = "Line Chart",
-    labelColor = "#000000",  // Changed to black for visibility
+    labelColor = "#000000", 
     lineColor = "steelblue"
 }) {
     if (!data || data.length === 0) {
@@ -15,7 +15,6 @@ function createLineChart({
     console.log("Rendering chart in:", elementId);
 
     const margin = { top: 60, right: 30, bottom: 60, left: 70 };
-    
 
     const x = d3.scaleLinear()
         .domain(d3.extent(data, d => d.x))
@@ -40,10 +39,11 @@ function createLineChart({
     const svg = container.append("svg")
         .attr("width", width)
         .attr("height", height)
-        .style("background-color", "fff")  // 👈 Changed background to white
+        .style("background-color", "#fff") 
         .style("color", labelColor)
         .style("border-radius", "15px");
 
+    // Title
     svg.append("text")
         .attr("x", width / 2)
         .attr("y", 30)
@@ -51,11 +51,11 @@ function createLineChart({
         .attr("text-anchor", "middle")
         .attr("font-size", "18px")
         .attr("font-weight", "bold")
+        .style("fill","black")
         .text(title);
 
     // Grid lines
-    const xGrid = svg.append("g")
-        .attr("class", "grid")
+    svg.append("g")
         .attr("transform", `translate(0,${height - margin.bottom})`)
         .call(d3.axisBottom(x)
             .tickSize(-height + margin.top + margin.bottom)
@@ -63,8 +63,7 @@ function createLineChart({
         )
         .style("color", "#ddd");
 
-    const yGrid = svg.append("g")
-        .attr("class", "grid")
+    svg.append("g")
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y)
             .tickSize(-width + margin.left + margin.right)
@@ -72,6 +71,7 @@ function createLineChart({
         )
         .style("color", "#ddd");
 
+    // Path setup (animation not triggered yet)
     const path = svg.append("path")
         .datum(data)
         .attr("fill", "none")
@@ -81,51 +81,40 @@ function createLineChart({
 
     const totalLength = path.node().getTotalLength();
 
-    path
-        .attr("stroke-dasharray", `${totalLength} ${totalLength}`)
-        .attr("stroke-dashoffset", totalLength)
-        .transition()
-        .duration(5000)  // 👈 Faster animation
-        .ease(d3.easeCubicOut)
-        .attr("stroke-dashoffset", 0);
+    path.attr("stroke-dasharray", `${totalLength} ${totalLength}`)
+        .attr("stroke-dashoffset", totalLength);
 
-    const xAxis = svg.append("g")
+    // Axis
+    svg.append("g")
         .attr("transform", `translate(0,${height - margin.bottom})`)
         .call(d3.axisBottom(x))
         .selectAll("text")  
-        .style("fill", "black");  // 👈 Correct way to set text color
-    
-    const yAxis = svg.append("g")
+        .style("fill", "black");
+
+    svg.append("g")
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y))
         .selectAll("text")  
-        .style("fill", "black");  // 👈 Correct way to set text color
-    
+        .style("fill", "black");
+
+    // Axis labels
     svg.append("text")
         .attr("x", width / 2)
         .attr("y", height - 20)
         .attr("text-anchor", "middle")
         .attr("font-size", "14px")
-        .style("fill", "black")  // 👈 Ensures X-axis label color
+        .style("fill", "black")
         .text("2θ (degrees)");
-    
+
     svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("x", -height / 2)
         .attr("y", 20)
         .attr("text-anchor", "middle")
         .attr("font-size", "14px") 
-        .style("fill", "black") // 👈 Ensures Y-axis label color
+        .style("fill", "black")
         .text("Intensity (a.u.)");
-    
-    svg.append("text")
-        .attr("x", width / 2)
-        .attr("y", 30)
-        .attr("text-anchor", "middle")
-        .attr("font-size", "18px")
-        .attr("font-weight", "bold")
-        .style("fill", "black")  // 👈 Ensures title color
-        .text(title);
+
     // Legend
     const legend = svg.append("g")
         .attr("transform", `translate(${width - 150}, ${margin.top - 20})`);
@@ -133,13 +122,31 @@ function createLineChart({
     legend.append("rect")
         .attr("width", 12)
         .attr("height", 12)
-        .attr("fill", lineColor);
-
+        .attr("font-size", 10)
+        .style("fill", lineColor);
+    
+    const legendbox = "X-Ray Diffraction";
     legend.append("text")
         .attr("x", 20)
         .attr("y", 10)
-        .attr("fill", labelColor)
-        .attr("font-size", "12px")
+        .attr("font-size", 12)
         .style("fill", "black")
-        .text("X-Ray Diffraction Pattern");
+        .text(legendbox);
+    // ✅ Trigger animation when graph enters viewport
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Start line animation
+                path.transition()
+                    .duration(2000)
+                    .ease(d3.easeCubicOut)
+                    .attr("stroke-dashoffset", 0);
+
+                // Stop observing after first trigger
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 }); // Trigger at 50% visibility
+
+    observer.observe(container.node());
 }
