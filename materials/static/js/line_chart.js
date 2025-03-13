@@ -194,7 +194,7 @@ function createLineChart({
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 path.transition()
-                    .duration(2000)
+                    .duration(4000)
                     .ease(d3.easeCubicOut)
                     .attr("stroke-dashoffset", 0);
 
