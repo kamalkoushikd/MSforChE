@@ -16,6 +16,38 @@ function createLineChart({
 
     const margin = { top: 60, right: 30, bottom: 60, left: 70 };
 
+    const container = d3.select(`#${elementId}`);
+    if (container.empty()) {
+        console.error("Container element not found:", elementId);
+        return;
+    }
+    
+    // Ensure container is relatively positioned for proper tooltip placement
+    container.style("position", "relative");
+
+    // Clear previous content
+    container.selectAll("*").remove();
+
+    // Create SVG first
+    const svg = container.append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .style("background-color", "#fff")
+        .style("color", labelColor)
+        .style("border-radius", "15px");
+
+    // Create tooltip (appended to container)
+    const tooltip = container.append("div")
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("display", "none")
+        .style("background", "rgba(255, 255, 255, 1)")
+        .style("padding", "5px")
+        .style("border", "1px solid #ccc")
+        .style("border-radius", "3px")
+        .style("color", "black")
+
+    // Scales
     const x = d3.scaleLinear()
         .domain(d3.extent(data, d => d.x))
         .range([margin.left, width - margin.right]);
@@ -24,35 +56,10 @@ function createLineChart({
         .domain(d3.extent(data, d => d.y))
         .range([height - margin.bottom, margin.top]);
 
+    // Line generator
     const line = d3.line()
         .x(d => x(d.x))
         .y(d => y(d.y));
-
-    const container = d3.select(`#${elementId}`);
-    if (container.empty()) {
-        console.error("Container element not found:", elementId);
-        return;
-    }
-
-    container.selectAll("*").remove();
-
-    const svg = container.append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .style("background-color", "#fff") 
-        .style("color", labelColor)
-        .style("border-radius", "15px");
-
-    // Title
-    svg.append("text")
-        .attr("x", width / 2)
-        .attr("y", 30)
-        .attr("fill", labelColor)
-        .attr("text-anchor", "middle")
-        .attr("font-size", "18px")
-        .attr("font-weight", "bold")
-        .style("fill","black")
-        .text(title);
 
     // Grid lines
     svg.append("g")
@@ -71,7 +78,7 @@ function createLineChart({
         )
         .style("color", "#ddd");
 
-    // Path setup (animation not triggered yet)
+    // Draw line path
     const path = svg.append("path")
         .datum(data)
         .attr("fill", "none")
@@ -84,18 +91,21 @@ function createLineChart({
     path.attr("stroke-dasharray", `${totalLength} ${totalLength}`)
         .attr("stroke-dashoffset", totalLength);
 
-    // Axis
+    // Draw axes
     svg.append("g")
         .attr("transform", `translate(0,${height - margin.bottom})`)
         .call(d3.axisBottom(x))
-        .selectAll("text")  
+        .selectAll("text")
         .style("fill", "black");
 
     svg.append("g")
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y))
-        .selectAll("text")  
+        .selectAll("text")
         .style("fill", "black");
+
+    // Title
+    
 
     // Axis labels
     svg.append("text")
@@ -111,42 +121,116 @@ function createLineChart({
         .attr("x", -height / 2)
         .attr("y", 20)
         .attr("text-anchor", "middle")
-        .attr("font-size", "14px") 
+        .attr("font-size", "14px")
         .style("fill", "black")
         .text("Intensity (a.u.)");
 
-    // Legend
-    const legend = svg.append("g")
-        .attr("transform", `translate(${width - 150}, ${margin.top - 20})`);
+    // Interactive circle for tooltip display
+    const circle = svg.append("circle")
+        .attr("r", 0)
+        .attr("fill", lineColor)
+        .style("stroke", "white")
+        .attr("opacity", 0.9)
+        .style("pointer-events", "none");
 
-    legend.append("rect")
-        .attr("width", 12)
-        .attr("height", 12)
-        .attr("font-size", 10)
-        .style("fill", lineColor);
-    
-    const legendbox = "X-Ray Diffraction";
-    legend.append("text")
-        .attr("x", 20)
-        .attr("y", 10)
-        .attr("font-size", 12)
-        .style("fill", "black")
-        .text(legendbox);
-    // ✅ Trigger animation when graph enters viewport
+    // Listening rectangle for mouse events
+    const listeningRect = svg.append("rect")
+        .attr("width", width)
+        .attr("height", height)
+        .style("fill", "none")
+        .style("pointer-events", "all");
+
+    listeningRect.on("mousemove", function (event) {
+        const [xCoord] = d3.pointer(event, this);
+        const bisectX = d3.bisector(d => d.x).left;
+        const x0 = x.invert(xCoord);
+        let i = bisectX(data, x0, 1);
+
+        // Safeguard for edge cases
+        if (i >= data.length) i = data.length - 1;
+
+        const d0 = data[i - 1];
+        const d1 = data[i];
+        let dNearest;
+        if (!d0) {
+            dNearest = d1;
+        } else if (!d1) {
+            dNearest = d0;
+        } else {
+            dNearest = (x0 - d0.x) > (d1.x - x0) ? d1 : d0;
+        }
+
+        const xPos = x(dNearest.x);
+        const yPos = y(dNearest.y);
+
+        // Update circle position and radius
+        circle.attr("cx", xPos)
+              .attr("cy", yPos);
+
+        circle.transition()
+              .duration(50)
+              .attr("r", 5);
+
+        // Show and update tooltip content and position
+        tooltip.style("display", "block")
+               .style("left", `${xPos + 20}px`)
+               .style("top", `${yPos + 20 }px`)
+               .html(`<strong>Angle:</strong> ${dNearest.x.toFixed(5)}° <br><strong>Intensity:</strong> ${dNearest.y.toFixed(5)}(a.u.)`);
+    });
+
+    listeningRect.on("mouseleave", function () {
+        circle.transition()
+              .duration(50)
+              .attr("r", 0);
+
+        tooltip.style("display", "none");
+    });
+
+    // Trigger animation when graph enters the viewport
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Start line animation
                 path.transition()
                     .duration(2000)
                     .ease(d3.easeCubicOut)
                     .attr("stroke-dashoffset", 0);
 
-                // Stop observing after first trigger
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 }); // Trigger at 50% visibility
+    }, { threshold: 0.5 });
 
     observer.observe(container.node());
+
+    // Append legend AFTER interactive elements so it appears on top
+    const legend = svg.append("g")
+        .attr("class", "legend")
+        .attr("transform", `translate(${width - 175}, ${margin.top - 20})`);
+
+    legend.append("rect")
+        .attr("width", 12)
+        .attr("height", 12)
+        .style("fill", "steelblue")
+        .style("stroke", "black");
+
+    legend.append("text")
+        .attr("x", 20)
+        .attr("y", 10)
+        .attr("font-size", 12)
+        .style("fill", "black")
+        .text("X-Ray Diffraction");
+
+    // Alternatively, if you need to raise an existing legend group:
+    svg.select(".legend").raise();
+    
+    svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", 30)
+        .attr("fill", labelColor)
+        .attr("text-anchor", "middle")
+        .attr("font-size", "18px")
+        .attr("font-weight", "bold")
+        .style("fill", "black")
+        .text(title);
+    
 }

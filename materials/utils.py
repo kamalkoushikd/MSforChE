@@ -30,12 +30,6 @@ def get_graph(name):
             y_fine += peak_shape(x_fine, pattern.x[i], pattern.y[i])
         
         # Plot result
-        plt.figure(figsize=(12, 6))
-        plt.plot(x_fine, y_fine)
-        plt.xlabel("2θ (degrees)")
-        plt.ylabel("Intensity (a.u.)")
-        plt.title(f"XRD Pattern for {name.capitalize()}")
-        plt.grid(True)
         # plt.savefig(f"static/images/{name}.png", dpi=300)
         
         print("Alternative XRD pattern successfully generated!")

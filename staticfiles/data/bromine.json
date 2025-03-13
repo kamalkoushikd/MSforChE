@@ -1,0 +1,33 @@
+{
+	"Industrial Impact": {
+		"Chemical Industry": {
+			"Flame Retardants": "Brominated flame retardants (BFRs) are used in plastics, textiles, and electronic devices to reduce fire hazards.",
+			"Organic Synthesis": "Used in the production of pharmaceuticals, agrochemicals, and dyes.",
+			"Catalysts": "Bromine compounds act as catalysts in various chemical reactions, such as in alkylation and oxidation processes.",
+			"Solvents": "Some bromine-containing compounds, like N-bromosuccinimide (NBS), are used in organic synthesis for bromination reactions."
+		},
+		"Energy Sector": {
+			"Oil and Gas Drilling": "Calcium bromide and zinc bromide brines are used as dense drilling fluids in oil and gas extraction.",
+			"Energy Storage": "Bromine-based flow batteries, such as zinc-bromine batteries, are used for large-scale energy storage.",
+			"Coal Emission Control": "Bromine compounds are used to reduce mercury emissions from coal-fired power plants."
+		},
+		"Construction": {
+			"Flame Retardant Materials": "Brominated compounds are added to insulation materials, cables, and construction plastics to enhance fire resistance.",
+			"Water Treatment": "Bromine-based biocides are used in cooling towers and industrial water systems to prevent microbial growth."
+		},
+		"Agriculture and Medicine": {
+			"Pesticides and Fumigants": "Methyl bromide was used for soil fumigation (now largely phased out due to environmental concerns).",
+			"Pharmaceuticals": "Bromine is found in sedatives (such as bromides), antiseptics, and other drug formulations.",
+			"Veterinary Medicine": "Used in certain veterinary drugs and treatments."
+		},
+		"Metallurgy": {
+			"Gold Extraction": "Bromine leaching is an alternative to cyanide in gold recovery.",
+			"Metal Surface Treatment": "Bromine compounds are used in etching processes for semiconductors and other metals."
+		},
+		"Other Applications": {
+			"Dyes and Pigments": "Brominated compounds are used in producing vibrant colors in textiles and paints.",
+			"Photography": "Silver bromide is a key component in traditional photographic films.",
+			"Perfume Industry": "Some brominated compounds contribute to the fragrance industry."
+		}
+	}
+}

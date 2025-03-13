@@ -6,14 +6,22 @@
     
     <link rel="stylesheet" href="{% static 'css/cards.css' %}">
     <style>
-        
-        .chart-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh; /* Adjust height */
-            border-radius: 10px;
-            background-color: #ffffff;
+        rect {
+            pointer-events: all;
+            fill-opacity: 0;
+            stroke-opacity: 0;
+            z-index: 1;
+          }
+      
+          .tooltip {
+          position: absolute;
+          padding: 10px;
+          background-color: steelblue;
+          color: white;
+          border: 1px solid white;
+          border-radius: 10px;
+          display: none;
+          opacity: .75;
         }
     </style>
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -237,8 +245,8 @@
             createLineChart({
                 elementId: 'graph-container',
                 data: data,
-                width: 800,
-                height: 600,
+                width: 900,
+                height: 800,
                 title: "{{ element.name }} X-Ray Diffraction Pattern",
                 labelColor: "#FFFFFF", // Example: Gold labels
                 lineColor: "#1579eb",
