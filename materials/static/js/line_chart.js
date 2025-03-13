@@ -16,14 +16,17 @@ function createLineChart({
 
     const margin = { top: 60, right: 30, bottom: 60, left: 70 };
 
-    const container = d3.select(`#${elementId}`);
+    const container = d3.select(`#${elementId}`)
+        .style("position", "relative")
+        .style("display", "block")
+        .style("margin", "0 auto")
+        .attr("class", "center container justify-content-center");
     if (container.empty()) {
         console.error("Container element not found:", elementId);
         return;
     }
     
     // Ensure container is relatively positioned for proper tooltip placement
-    container.style("position", "relative");
 
     // Clear previous content
     container.selectAll("*").remove();
@@ -210,7 +213,7 @@ function createLineChart({
     legend.append("rect")
         .attr("width", 12)
         .attr("height", 12)
-        .style("fill", "steelblue")
+        .style("fill", lineColor)
         .style("stroke", "black");
 
     legend.append("text")

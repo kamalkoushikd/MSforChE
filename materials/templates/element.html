@@ -227,29 +227,39 @@
   </div>
   {%endif%}
   <hr>
-  <h1 style="text-align:center; margin-top: 40px;"> X-Ray Diffraction Pattern (Simulated)</h1>
-
-  <div class="container" style="margin: 40px; border-radius: 10px">
-    <div class="row justify-content-center">
-        <div class="col-md-8 chart-container">
-            <div id="graph-container"></div>
-        </div>
-    </div>
-  </div>
+  <h1 style="text-align: center; margin: 40px 0 10px;">
+    X-Ray Diffraction Pattern (Simulated)
+  </h1>
+  
+  <div style="margin: 0 auto; padding: 0; border-radius: 10px; width: 1000px; height: 800px; text-align: center; transform: translateX(-12px);">
+    <div id="graph-container" style="margin: 0 auto;"></div>
+  </div>    
 
     <script>
         // Pass data from Django to JS
         const data = {{ data|safe }};
+
+        const element = "{{ element.name }}";
+        let color = "steelblue";
+        if (element === "Bromine") {
+            color = "#A52A2A"
+        }
+        else if (element === "Sulfur") {
+            color = "#edc71f"
+        }
+        else if (element === "Copper") {
+            color = "#B87333"
+        }
         
         document.addEventListener("DOMContentLoaded", function() {
             createLineChart({
                 elementId: 'graph-container',
                 data: data,
-                width: 900,
+                width: 1000,
                 height: 800,
                 title: "{{ element.name }} X-Ray Diffraction Pattern",
                 labelColor: "#FFFFFF", // Example: Gold labels
-                lineColor: "#1579eb",
+                lineColor: color,
                 legendText: "XRD pattern for {{ element.name }}",
 
             });
