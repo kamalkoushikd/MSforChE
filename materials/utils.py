@@ -17,7 +17,7 @@ def get_graph(name):
         pattern = calculator.get_pattern(structure)
         
         # Create a finer x-axis (2θ values)
-        x_fine = np.linspace(20, 90, 1000)
+        x_fine = np.linspace(0, 90, 1000)
         
         # Function to calculate peak shape (pseudo-Voigt profile)
         def peak_shape(x, center, intensity, fwhm=0.1):

@@ -53,16 +53,17 @@ function createLineChart({
     // Scales
     const x = d3.scaleLinear()
         .domain(d3.extent(data, d => d.x))
-        .range([margin.left, width - margin.right]);
+        .range([margin.left, width - margin.right + 20]);
 
     const y = d3.scaleLinear()
         .domain(d3.extent(data, d => d.y))
-        .range([height - margin.bottom, margin.top]);
+        .range([height - margin.bottom, margin.top + 20 ]);
 
     // Line generator
     const line = d3.line()
         .x(d => x(d.x))
         .y(d => y(d.y));
+
 
     // Grid lines
     svg.append("g")
@@ -193,16 +194,19 @@ function createLineChart({
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                path.transition()
+                // Start the animation when the chart enters the viewport
+                path.attr("stroke-dashoffset", totalLength)
+                    .transition()
                     .duration(4000)
                     .ease(d3.easeCubicOut)
                     .attr("stroke-dashoffset", 0);
-
-                observer.unobserve(entry.target);
+            } else {
+                // Reset the path when it leaves the viewport
+                path.attr("stroke-dashoffset", totalLength);
             }
         });
     }, { threshold: 0.5 });
-
+    
     observer.observe(container.node());
 
     // Append legend AFTER interactive elements so it appears on top

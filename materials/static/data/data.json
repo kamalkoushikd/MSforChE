@@ -2,6 +2,8 @@
     "elements": [
       {
         "element": "Sulfur",
+        "symbol": "S",
+        "atomic_number": 16,
         "industrial_data": {
           "applications": [
             {
@@ -13,7 +15,9 @@
                   "details": [
                     "Fertilizer production (e.g., superphosphate and ammonium sulfate)",
                     "Manufacturing of detergents, dyes, and explosives",
-                    "Petroleum refining to remove impurities"
+                    "Petroleum refining to remove impurities",
+                    "Metal processing and ore leaching",
+                    "Used in lead-acid batteries"
                   ]
                 },
                 {
@@ -21,7 +25,9 @@
                   "description": "Used for food preservation and paper bleaching.",
                   "details": [
                     "Food and beverage preservation (e.g., wine, dried fruits)",
-                    "Paper bleaching in pulp & paper industry"
+                    "Paper bleaching in pulp & paper industry",
+                    "Wastewater treatment processes",
+                    "Disinfection applications"
                   ]
                 }
               ]
@@ -34,7 +40,9 @@
                   "description": "Used in electric vehicles and aerospace applications.",
                   "details": [
                     "Electric vehicles (EVs)",
-                    "Aerospace applications"
+                    "Aerospace applications",
+                    "Higher theoretical energy density than Li-ion",
+                    "Lighter weight for aviation applications"
                   ]
                 },
                 {
@@ -42,7 +50,9 @@
                   "description": "Used in desulfurization of fossil fuels and reduction of SO₂ emissions.",
                   "details": [
                     "Desulfurization of fossil fuels",
-                    "Reduction of SO₂ emissions"
+                    "Reduction of SO₂ emissions",
+                    "Hydrodesulfurization catalysts",
+                    "Compliance with environmental regulations"
                   ]
                 }
               ]
@@ -56,7 +66,18 @@
                   "details": [
                     "Industrial flooring",
                     "Sewage systems",
-                    "Marine applications"
+                    "Marine applications",
+                    "Acid-resistant infrastructure",
+                    "Rapid setting properties"
+                  ]
+                },
+                {
+                  "name": "Polymer Modification",
+                  "description": "Enhances properties of various polymers and elastomers.",
+                  "details": [
+                    "Cross-linking agent in rubber production",
+                    "Improves heat resistance in specialty plastics",
+                    "Component in high-performance coatings"
                   ]
                 }
               ]
@@ -69,7 +90,19 @@
                   "description": "Provides plant nutrition and sulfate fertilizers.",
                   "details": [
                     "Plant nutrition",
-                    "Sulfate fertilizers (e.g., ammonium sulfate)"
+                    "Sulfate fertilizers (e.g., ammonium sulfate)",
+                    "Essential for protein synthesis in crops",
+                    "Improves nitrogen utilization efficiency"
+                  ]
+                },
+                {
+                  "name": "Pharmaceutical Applications",
+                  "description": "Component in various medications.",
+                  "details": [
+                    "Sulfonamide antibiotics",
+                    "Antifungal medications",
+                    "Treatment for certain skin conditions",
+                    "Used in some diabetes medications"
                   ]
                 }
               ]
@@ -82,7 +115,18 @@
                   "description": "Used for impurity control and improved machinability in steel.",
                   "details": [
                     "Impurity control in steel",
-                    "Improving machinability in free-cutting steels"
+                    "Improving machinability in free-cutting steels",
+                    "Inclusion modification in specialty steels"
+                  ]
+                },
+                {
+                  "name": "Sulfide Compounds",
+                  "description": "Used in vulcanization of rubber and pharmaceuticals.",
+                  "details": [
+                    "Vulcanization of rubber",
+                    "Pharmaceuticals (e.g., sulfa drugs for bacterial infections)",
+                    "Metal sulfides in catalytic applications",
+                    "Pigments and colorants production"
                   ]
                 }
               ]
@@ -95,7 +139,19 @@
                   "description": "Used in petrochemical cracking and polymerization reactions.",
                   "details": [
                     "Petrochemical cracking and polymerization reactions",
-                    "Sulfur-doped carbon materials for supercapacitors and fuel cells"
+                    "Sulfur-doped carbon materials for supercapacitors and fuel cells",
+                    "Environmental remediation technologies",
+                    "Carbon capture applications"
+                  ]
+                },
+                {
+                  "name": "Advanced Materials",
+                  "description": "Component in next-generation materials.",
+                  "details": [
+                    "Semiconductor applications",
+                    "Infrared optics",
+                    "Quantum dot technology",
+                    "Thin-film electronics"
                   ]
                 }
               ]
@@ -106,14 +162,31 @@
             "largest_consumers": [
               "Fertilizer industry",
               "Chemical industry",
-              "Petroleum industry"
+              "Petroleum industry",
+              "Manufacturing sector",
+              "Agriculture"
             ],
             "future_demand": "Expected to increase due to Li-S batteries and high-performance materials"
+          },
+          "sustainability": {
+            "recycling_potential": "Medium - primarily recovered from industrial byproducts",
+            "environmental_concerns": [
+              "Acid rain from SO₂ emissions",
+              "Hydrogen sulfide toxicity",
+              "Contamination in water systems"
+            ],
+            "innovation_areas": [
+              "Cleaner recovery methods",
+              "Enhanced applications in energy storage",
+              "Sulfur-based polymers as plastic alternatives"
+            ]
           }
         }
       },
       {
         "element": "Copper",
+        "symbol": "Cu",
+        "atomic_number": 29,
         "industrial_data": {
           "applications": [
             {
@@ -124,7 +197,40 @@
                   "description": "Bromine leaching is used for extracting copper from ores.",
                   "details": [
                     "Efficient extraction for low-grade ores",
-                    "Cupric bromide (CuBr₂) acts as an oxidizing agent"
+                    "Cupric bromide (CuBr₂) acts as an oxidizing agent",
+                    "Reduces environmental impact compared to traditional acid leaching",
+                    "Enables recovery of copper from sulfide ores with lower energy requirements",
+                    "Can be combined with electrowinning for purification"
+                  ]
+                },
+                {
+                  "name": "Industrial Machinery",
+                  "description": "Component in industrial equipment",
+                  "details": [
+                    "Used in pumps, valves, gears, turbines, heat exchangers, and industrial cooling systems due to its durability and thermal properties",
+                    "Critical in maritime applications due to corrosion resistance in saltwater environments",
+                    "Used in industrial bearings due to self-lubricating properties when alloyed",
+                    "Essential in high-temperature industrial processes due to high melting point (1,085°C)"
+                  ]
+                },
+                {
+                  "name": "Coinage",
+                  "description": "Material for currency production",
+                  "details": [
+                    "Many countries use copper and copper alloys in their coins due to its durability, recognizable appearance, and antimicrobial properties",
+                    "The US penny contains 2.5% copper coating over zinc",
+                    "Euro coins use copper alloys for distinctive coloration",
+                    "Copper's distinctive sound when dropped helps verify authenticity"
+                  ]
+                },
+                {
+                  "name": "Alloys",
+                  "description": "Combined with other metals to create new materials",
+                  "details": [
+                    "Forms bronze (copper and tin), brass (copper and zinc), cupronickel, and other alloys with enhanced properties for specific applications",
+                    "Beryllium copper alloys offer high strength and non-sparking properties for safety tools",
+                    "Naval brass contains copper, zinc, and tin for enhanced corrosion resistance in marine environments",
+                    "Phosphor bronze combines copper with tin and phosphorus for greater strength and fatigue resistance"
                   ]
                 }
               ]
@@ -133,10 +239,24 @@
               "category": "🏗️ Construction & Industrial Use",
               "applications": [
                 {
-                  "name": "Corrosion Inhibition",
-                  "description": "Bromine compounds protect copper pipes and equipment from oxidation.",
+                  "name": "Civil Industry",
+                  "description": "Employed in building infrastructure and components",
                   "details": [
-                    "Tetrabromobisphenol A (TBBPA) used in protective coatings"
+                    "Used in plumbing systems, water pipes, roofing materials, gutters, flashing, and architectural elements. Copper's corrosion resistance, durability, and antimicrobial properties make it valuable in construction",
+                    "Copper roofing can last over 100 years with minimal maintenance",
+                    "Naturally forms protective patina that prevents further corrosion",
+                    "Compatible with various water qualities without contamination risks",
+                    "Excellent fire resistance rating with melting point of 1,085°C"
+                  ]
+                },
+                {
+                  "name": "HVAC Systems",
+                  "description": "Essential material in heating, ventilation, and air conditioning",
+                  "details": [
+                    "Primary material for refrigerant lines due to thermal conductivity",
+                    "Used in heat exchangers, condensers, and evaporator coils",
+                    "Reduces energy consumption through efficient heat transfer",
+                    "Allows for smaller tubing diameters due to superior heat conductivity"
                   ]
                 }
               ]
@@ -150,7 +270,30 @@
                   "details": [
                     "Dye and pigment production",
                     "Laser technology in copper bromide lasers",
-                    "Component in film-developing solutions"
+                    "Component in film-developing solutions",
+                    "Catalyst in various organic synthesis reactions",
+                    "Used in atom transfer radical polymerization (ATRP)"
+                  ]
+                },
+                {
+                  "name": "Electronics",
+                  "description": "Critical component in electronic devices",
+                  "details": [
+                    "Found in circuit boards, semiconductors, microchips, connectors, and various electronic components. Its conductivity and reliability are essential for modern electronics",
+                    "Second only to silver in electrical conductivity among metals",
+                    "Used in high-performance computing for heat dissipation",
+                    "Critical in power transmission with 60% less energy loss than aluminum",
+                    "Essential in electromagnetic shielding applications"
+                  ]
+                },
+                {
+                  "name": "Telecommunications",
+                  "description": "Backbone of communication networks",
+                  "details": [
+                    "Used in coaxial cables, ethernet cables, and fiber optic network components",
+                    "Essential in cell tower infrastructure and satellite communications",
+                    "Provides superior signal integrity with minimal interference",
+                    "Enables high-speed data transmission in backbone networks"
                   ]
                 }
               ]
@@ -161,7 +304,22 @@
                 {
                   "name": "Copper-Bromine Batteries",
                   "description": "Under research for large-scale energy storage.",
-                  "details": []
+                  "details": [
+                    "Potential for grid-scale energy storage applications",
+                    "Higher energy density than traditional lead-acid batteries",
+                    "Longer cycle life than many competing technologies",
+                    "More environmentally friendly than lithium-ion alternatives"
+                  ]
+                },
+                {
+                  "name": "Renewable Energy",
+                  "description": "Critical component in clean energy systems",
+                  "details": [
+                    "Used extensively in solar panels and wind turbines",
+                    "Essential for power inverters and transformers in renewable installations",
+                    "Key material in electric vehicle charging infrastructure",
+                    "Enables efficient energy transfer in hydroelectric systems"
+                  ]
                 }
               ]
             },
@@ -176,16 +334,77 @@
                     "Bromination for pharmaceuticals and dyes",
                     "ATRP for high-performance polymers",
                     "Oxidizing agent for converting alcohols",
-                    "Etching for PCB manufacturing"
+                    "Etching for PCB manufacturing",
+                    "Catalyst in Sandmeyer and Ullmann reactions",
+                    "Used in click chemistry applications"
+                  ]
+                },
+                {
+                  "name": "Chemical Synthesis",
+                  "description": "Catalytic applications in organic chemistry",
+                  "details": [
+                    "Catalyst for cross-coupling reactions",
+                    "Used in asymmetric synthesis applications",
+                    "Enables selective oxidation reactions",
+                    "Critical in pharmaceutical intermediate production"
+                  ]
+                }
+              ]
+            },
+            {
+              "category": "🌱 Agriculture and Medicine",
+              "applications": [
+                {
+                  "name": "Antimicrobial Applications",
+                  "description": "Used for disease prevention",
+                  "details": [
+                    "Naturally kills bacteria, viruses, and fungi",
+                    "Used for touch surfaces in healthcare facilities",
+                    "Incorporated into medical equipment",
+                    "Valuable for public spaces to reduce pathogen spread",
+                    "EPA-registered as the only metal with antimicrobial properties",
+                    "Effective against antibiotic-resistant bacteria like MRSA",
+                    "Maintains antimicrobial efficacy without developing resistance"
+                  ]
+                },
+                {
+                  "name": "Agricultural Applications",
+                  "description": "Essential micronutrient for plants and animals",
+                  "details": [
+                    "Used in fertilizers to prevent copper deficiency in crops",
+                    "Component in animal feed supplements",
+                    "Used in fungicides and pesticides for crop protection",
+                    "Essential for photosynthesis and plant metabolism"
                   ]
                 }
               ]
             }
           ],
           "impact": {
-            "global_production": "",
-            "largest_consumers": [],
-            "future_demand": ""
+            "global_production": "20 million metric tons annually, with Chile being the largest producer (28% of global supply)",
+            "largest_consumers": [
+              "China (54% of global consumption)",
+              "European Union",
+              "United States",
+              "Japan",
+              "South Korea"
+            ],
+            "future_demand": "Projected to increase by 40% by 2030, driven by renewable energy transition, electric vehicles, and expanding electronics markets"
+          },
+          "sustainability": {
+            "recycling_rate": "Approximately 35% of global copper usage comes from recycled sources",
+            "environmental_challenges": [
+              "Mining waste management",
+              "Energy-intensive extraction processes",
+              "Water usage concerns in arid mining regions",
+              "Potential for acid mine drainage"
+            ],
+            "innovation_trends": [
+              "Bioleaching technologies",
+              "Improved recycling methodologies",
+              "Low-impact mining practices",
+              "Copper alternatives research for non-critical applications"
+            ]
           }
         }
       },
@@ -198,12 +417,22 @@
               "applications": [
                 {
                   "name": "Flame Retardants",
-                  "description": "Used in plastics, textiles, and electronics to reduce fire hazards.",
+                  "description": "Used in plastics, textiles, furniture, and electronics to reduce fire hazards.",
                   "details": []
                 },
                 {
                   "name": "Organic Synthesis",
                   "description": "Used in the production of pharmaceuticals, agrochemicals, and dyes.",
+                  "details": []
+                },
+                {
+                  "name": "Solvents",
+                  "description": "Historically used in brominated solvents like methyl bromide for fumigation and degreasing.",
+                  "details": []
+                },
+                {
+                  "name": "Brominated Intermediates",
+                  "description": "Key in synthesizing specialty chemicals like brominated aromatics and polymers.",
                   "details": []
                 }
               ]
@@ -213,17 +442,27 @@
               "applications": [
                 {
                   "name": "Energy Storage",
-                  "description": "Bromine-based flow batteries for large-scale energy storage.",
+                  "description": "Bromine-based flow batteries (e.g., zinc-bromine, hydrogen-bromine) for large-scale energy storage.",
+                  "details": []
+                },
+                {
+                  "name": "Drilling Fluids",
+                  "description": "Calcium bromide (CaBr₂) used in oil and gas drilling for pressure control.",
                   "details": []
                 }
               ]
             },
             {
-              "category": "🏗️ Construction",
+              "category": "🏗️ Construction and Infrastructure",
               "applications": [
                 {
                   "name": "Flame Retardant Materials",
-                  "description": "Enhances fire resistance in insulation and cables.",
+                  "description": "Enhances fire resistance in insulation, roofing, and electrical cables.",
+                  "details": []
+                },
+                {
+                  "name": "Water Treatment",
+                  "description": "Bromine-based disinfectants used in cooling towers, swimming pools, and industrial water systems.",
                   "details": []
                 }
               ]
@@ -233,7 +472,17 @@
               "applications": [
                 {
                   "name": "Pesticides and Fumigants",
-                  "description": "Previously used for soil fumigation (now largely phased out).",
+                  "description": "Methyl bromide was historically used as a soil fumigant but is now largely phased out.",
+                  "details": []
+                },
+                {
+                  "name": "Pharmaceuticals",
+                  "description": "Bromine is present in sedatives, anesthetics, and epilepsy treatments.",
+                  "details": []
+                },
+                {
+                  "name": "Antiseptics and Disinfectants",
+                  "description": "Bromine-based solutions used in wound care and microbial control.",
                   "details": []
                 }
               ]
@@ -243,7 +492,27 @@
               "applications": [
                 {
                   "name": "Gold Extraction",
-                  "description": "Bromine leaching serves as an alternative in gold recovery.",
+                  "description": "Bromine leaching is an environmentally friendly alternative for gold recovery.",
+                  "details": []
+                },
+                {
+                  "name": "Aluminum and Magnesium Processing",
+                  "description": "Bromine-based compounds assist in removing impurities during metal refining.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "category": "🌊 Marine and Environmental Applications",
+              "applications": [
+                {
+                  "name": "Desalination",
+                  "description": "Bromine-based biocides prevent biofouling in seawater desalination plants.",
+                  "details": []
+                },
+                {
+                  "name": "Mercury Emission Control",
+                  "description": "Brominated sorbents help capture mercury from coal-fired power plants.",
                   "details": []
                 }
               ]
@@ -253,16 +522,32 @@
               "applications": [
                 {
                   "name": "Photography",
-                  "description": "Silver bromide is key in traditional photographic films.",
+                  "description": "Silver bromide (AgBr) is a light-sensitive compound essential in photographic film and X-ray imaging.",
+                  "details": []
+                },
+                {
+                  "name": "Dyes and Pigments",
+                  "description": "Bromine derivatives contribute to fluorescent dyes and textile colorants.",
+                  "details": []
+                },
+                {
+                  "name": "Rubber and Polymers",
+                  "description": "Bromobutyl rubber, resistant to oxidation, is used in tire inner linings and pharmaceutical stoppers.",
                   "details": []
                 }
               ]
             }
           ],
           "impact": {
-            "global_production": "",
-            "largest_consumers": [],
-            "future_demand": ""
+            "global_production": "Annual bromine production exceeds 500,000 metric tons.",
+            "largest_consumers": [
+              "Electronics",
+              "Energy Storage",
+              "Construction",
+              "Pharmaceuticals",
+              "Water Treatment"
+            ],
+            "future_demand": "Increasing demand for bromine in energy storage (batteries), flame retardants, and clean water technologies."
           }
         }
       }

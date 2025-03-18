@@ -27,7 +27,7 @@ class latticeRender {
         this.camera.lookAt(0, 0, 0);
 
         // Add lights
-        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        const ambientLight = new THREE.AmbientLight(0x404040, 5);
         const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
         directionalLight.position.set(5, 5, 5);
         this.scene.add(ambientLight);

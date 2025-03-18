@@ -16,14 +16,17 @@ function createLineChart({
 
     const margin = { top: 60, right: 30, bottom: 60, left: 70 };
 
-    const container = d3.select(`#${elementId}`);
+    const container = d3.select(`#${elementId}`)
+        .style("position", "relative")
+        .style("display", "block")
+        .style("margin", "0 auto")
+        .attr("class", "center container justify-content-center");
     if (container.empty()) {
         console.error("Container element not found:", elementId);
         return;
     }
     
     // Ensure container is relatively positioned for proper tooltip placement
-    container.style("position", "relative");
 
     // Clear previous content
     container.selectAll("*").remove();
@@ -32,7 +35,7 @@ function createLineChart({
     const svg = container.append("svg")
         .attr("width", width)
         .attr("height", height)
-        .style("background-color", "#fff")
+        .style("background-color", "#181A1B")
         .style("color", labelColor)
         .style("border-radius", "15px");
 
@@ -50,16 +53,17 @@ function createLineChart({
     // Scales
     const x = d3.scaleLinear()
         .domain(d3.extent(data, d => d.x))
-        .range([margin.left, width - margin.right]);
+        .range([margin.left, width - margin.right + 20]);
 
     const y = d3.scaleLinear()
         .domain(d3.extent(data, d => d.y))
-        .range([height - margin.bottom, margin.top]);
+        .range([height - margin.bottom, margin.top + 20 ]);
 
     // Line generator
     const line = d3.line()
         .x(d => x(d.x))
         .y(d => y(d.y));
+
 
     // Grid lines
     svg.append("g")
@@ -96,13 +100,13 @@ function createLineChart({
         .attr("transform", `translate(0,${height - margin.bottom})`)
         .call(d3.axisBottom(x))
         .selectAll("text")
-        .style("fill", "black");
+        .style("fill", "white");
 
     svg.append("g")
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y))
         .selectAll("text")
-        .style("fill", "black");
+        .style("fill", "white");
 
     // Title
     
@@ -113,7 +117,7 @@ function createLineChart({
         .attr("y", height - 20)
         .attr("text-anchor", "middle")
         .attr("font-size", "14px")
-        .style("fill", "black")
+        .style("fill", "white")
         .text("2θ (degrees)");
 
     svg.append("text")
@@ -122,7 +126,7 @@ function createLineChart({
         .attr("y", 20)
         .attr("text-anchor", "middle")
         .attr("font-size", "14px")
-        .style("fill", "black")
+        .style("fill", "white")
         .text("Intensity (a.u.)");
 
     // Interactive circle for tooltip display
@@ -190,16 +194,19 @@ function createLineChart({
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                path.transition()
-                    .duration(2000)
+                // Start the animation when the chart enters the viewport
+                path.attr("stroke-dashoffset", totalLength)
+                    .transition()
+                    .duration(4000)
                     .ease(d3.easeCubicOut)
                     .attr("stroke-dashoffset", 0);
-
-                observer.unobserve(entry.target);
+            } else {
+                // Reset the path when it leaves the viewport
+                path.attr("stroke-dashoffset", totalLength);
             }
         });
     }, { threshold: 0.5 });
-
+    
     observer.observe(container.node());
 
     // Append legend AFTER interactive elements so it appears on top
@@ -210,14 +217,14 @@ function createLineChart({
     legend.append("rect")
         .attr("width", 12)
         .attr("height", 12)
-        .style("fill", "steelblue")
-        .style("stroke", "black");
+        .style("fill", lineColor)
+        .style("stroke", "white");
 
     legend.append("text")
         .attr("x", 20)
         .attr("y", 10)
         .attr("font-size", 12)
-        .style("fill", "black")
+        .style("fill", "white")
         .text("X-Ray Diffraction");
 
     // Alternatively, if you need to raise an existing legend group:
@@ -230,7 +237,7 @@ function createLineChart({
         .attr("text-anchor", "middle")
         .attr("font-size", "18px")
         .attr("font-weight", "bold")
-        .style("fill", "black")
+        .style("fill", "white")
         .text(title);
     
 }

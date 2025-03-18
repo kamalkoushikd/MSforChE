@@ -56,6 +56,7 @@ def get_element_info(request, name):
 
         # Load the JSON file
         json_path = os.path.join(os.path.dirname(__file__), 'static/data/data.json')
+        model_path = os.path.join(os.path.dirname(__file__), f'static/models/{name.lower()}.json')
         with open(json_path, 'r') as file:
             data = json.load(file)
         
@@ -77,6 +78,7 @@ def get_element_info(request, name):
             "research": research["elements"][name.capitalize()],
             'industry': element_data,
             'data': graph_data,
+            'model': model_path,
         })
     except Exception as e:
         print(f"Error: {e}")

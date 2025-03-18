@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block head %}
-    
+    <link rel="stylesheet" href="{% static 'css/container.css' %}">
     <link rel="stylesheet" href="{% static 'css/cards.css' %}">
     <style>
         rect {
@@ -26,7 +26,17 @@
     </style>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="{% static 'js/line_chart.js' %}"></script>
+    <script src="{% static 'js/lattice.js'%}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/OutlinePass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/FXAAShader.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.property-card');
@@ -188,10 +198,8 @@
     
 </div>
 <hr>
-<h1>Industrial Applications</h1>
-
 <div class="industrial-applications">
-    <h2>Industrial Applications</h2>
+    <h1>Industrial Applications</h2>
     {% for category in industry.industrial_data.applications %}
       <h3>{{ category.category }}</h3>
       <ul>
@@ -231,10 +239,10 @@
     X-Ray Diffraction Pattern (Simulated)
   </h1>
   
-  <div style="margin: 0 auto; padding: 0; border-radius: 10px; width: 1000px; height: 800px; text-align: center; transform: translateX(-12px);">
+  <div style="margin: 0 auto; padding: 0; border-radius: 10px; width: 1200px; height: 800px; text-align: center; transform: translateX(-12px);">
     <div id="graph-container" style="margin: 0 auto;"></div>
-  </div>    
-
+  </div>
+    
     <script>
         // Pass data from Django to JS
         const data = {{ data|safe }};
@@ -255,7 +263,7 @@
             createLineChart({
                 elementId: 'graph-container',
                 data: data,
-                width: 1000,
+                width: 1200,
                 height: 800,
                 title: "{{ element.name }} X-Ray Diffraction Pattern",
                 labelColor: "#FFFFFF", // Example: Gold labels
