@@ -1,3 +1,32 @@
+{% load static %}
+
+<div class="lattice-section">
+    <div class="lattice-container" id="sulflatt" style="margin: auto;">
+    </div>
+    <div  style="display:flex; padding: 20px; justify-content: center; align-items: center;" >
+      <h5>&alpha;-Sulfur Lattice</h5>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="{% static 'js/lattice.js' %}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/OutlinePass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/FXAAShader.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sulflatt = new latticeRender('sulflatt', "/static/models/sulfurlatt.glb", '&alpha; Sulfur Lattice')
+});
+</script>
+
+
 <div class="carousel-container">
     <div class="scrolling-wrapper">
         <!-- General Properties Card -->
